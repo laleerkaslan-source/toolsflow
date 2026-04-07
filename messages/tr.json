@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "AraçFlow",
+    "description": "Ücretsiz online araçlar ve AI rehberleri. QR kod oluşturucu, resim sıkıştırma, döviz çevirici ve daha fazlası.",
+    "tagline": "Dijital Araçlar & AI Rehberleri"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "tools": "Araçlar",
+    "aiGuide": "AI Rehber",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "switchLang": "English"
+  },
+  "home": {
+    "hero": {
+      "title": "Ücretsiz Online Araçlar & AI Rehberleri",
+      "subtitle": "QR kod oluşturucu, resim sıkıştırma, döviz çevirici ve yapay zeka rehberleri — tamamen ücretsiz.",
+      "cta": "Araçları Keşfet"
+    },
+    "toolsSection": {
+      "title": "Popüler Araçlar",
+      "subtitle": "En çok kullanılan ücretsiz online araçlarımız",
+      "viewAll": "Tüm Araçları Gör"
+    },
+    "guidesSection": {
+      "title": "AI Rehberleri",
+      "subtitle": "Yapay zeka dünyasındaki en son gelişmeler ve karşılaştırmalar",
+      "viewAll": "Tüm Rehberleri Gör"
+    }
+  },
+  "tools": {
+    "title": "Ücretsiz Online Araçlar",
+    "description": "Günlük ihtiyaçlarınız için ücretsiz, hızlı ve güvenli online araçlar. Tüm işlemler tarayıcınızda gerçekleşir.",
+    "qr-code-generator": {
+      "name": "QR Kod Oluşturucu",
+      "description": "URL, metin veya iletişim bilgilerinizden anında QR kod oluşturun. PNG ve SVG formatında indirin.",
+      "shortDesc": "Anında QR kod oluşturun"
+    },
+    "bmi-calculator": {
+      "name": "VKİ Hesaplayıcı",
+      "description": "Vücut Kitle İndeksinizi (VKİ) hesaplayın. Boy ve kilonuzu girerek sağlık durumunuzu öğrenin.",
+      "shortDesc": "Vücut kitle indeksinizi hesaplayın"
+    },
+    "image-compressor": {
+      "name": "Resim Sıkıştırma",
+      "description": "Resimlerinizi kaliteden ödün vermeden küçültün. JPEG, PNG ve WebP formatları desteklenir.",
+      "shortDesc": "Resimleri kaliteden ödün vermeden sıkıştırın"
+    },
+    "currency-converter": {
+      "name": "Döviz Çevirici",
+      "description": "Güncel kurlarla döviz çevirimi yapın. 150+ para birimi desteklenir.",
+      "shortDesc": "Güncel kurlarla döviz çevirin"
+    },
+    "useNow": "Hemen Kullan",
+    "howToUse": "Nasıl Kullanılır?",
+    "faq": "Sık Sorulan Sorular",
+    "relatedTools": "İlgili Araçlar"
+  },
+  "guides": {
+    "title": "AI Rehberleri",
+    "description": "Yapay zeka araçları hakkında detaylı incelemeler, karşılaştırmalar ve kullanım rehberleri.",
+    "readMore": "Devamını Oku",
+    "minRead": "dk okuma",
+    "publishedOn": "Yayın tarihi"
+  },
+  "footer": {
+    "tools": "Araçlar",
+    "guides": "Rehberler",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "copyright": "Tüm hakları saklıdır.",
+    "madeWith": "ile yapıldı"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "download": "İndir",
+    "reset": "Sıfırla",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı!",
+    "generate": "Oluştur",
+    "calculate": "Hesapla",
+    "convert": "Çevir",
+    "result": "Sonuç",
+    "free": "Ücretsiz",
+    "noUpload": "Sunucuya yükleme yok"
+  }
+}

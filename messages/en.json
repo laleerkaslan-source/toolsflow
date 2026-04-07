@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "AraçFlow",
+    "description": "Free online tools and AI guides. QR code generator, image compressor, currency converter and more.",
+    "tagline": "Digital Tools & AI Guides"
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "aiGuide": "AI Guide",
+    "about": "About",
+    "contact": "Contact",
+    "switchLang": "Türkçe"
+  },
+  "home": {
+    "hero": {
+      "title": "Free Online Tools & AI Guides",
+      "subtitle": "QR code generator, image compressor, currency converter and AI guides — completely free.",
+      "cta": "Explore Tools"
+    },
+    "toolsSection": {
+      "title": "Popular Tools",
+      "subtitle": "Our most used free online tools",
+      "viewAll": "View All Tools"
+    },
+    "guidesSection": {
+      "title": "AI Guides",
+      "subtitle": "Latest developments and comparisons in the AI world",
+      "viewAll": "View All Guides"
+    }
+  },
+  "tools": {
+    "title": "Free Online Tools",
+    "description": "Free, fast and secure online tools for your everyday needs. All processing happens in your browser.",
+    "qr-code-generator": {
+      "name": "QR Code Generator",
+      "description": "Create QR codes instantly from URLs, text or contact information. Download in PNG and SVG formats.",
+      "shortDesc": "Create QR codes instantly"
+    },
+    "bmi-calculator": {
+      "name": "BMI Calculator",
+      "description": "Calculate your Body Mass Index (BMI). Enter your height and weight to learn your health status.",
+      "shortDesc": "Calculate your body mass index"
+    },
+    "image-compressor": {
+      "name": "Image Compressor",
+      "description": "Compress your images without losing quality. JPEG, PNG and WebP formats supported.",
+      "shortDesc": "Compress images without quality loss"
+    },
+    "currency-converter": {
+      "name": "Currency Converter",
+      "description": "Convert currencies with real-time exchange rates. 150+ currencies supported.",
+      "shortDesc": "Convert currencies with live rates"
+    },
+    "useNow": "Use Now",
+    "howToUse": "How to Use",
+    "faq": "Frequently Asked Questions",
+    "relatedTools": "Related Tools"
+  },
+  "guides": {
+    "title": "AI Guides",
+    "description": "Detailed reviews, comparisons and usage guides about AI tools.",
+    "readMore": "Read More",
+    "minRead": "min read",
+    "publishedOn": "Published on"
+  },
+  "footer": {
+    "tools": "Tools",
+    "guides": "Guides",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "download": "Download",
+    "reset": "Reset",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "generate": "Generate",
+    "calculate": "Calculate",
+    "convert": "Convert",
+    "result": "Result",
+    "free": "Free",
+    "noUpload": "No server upload"
+  }
+}
