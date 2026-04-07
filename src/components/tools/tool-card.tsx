@@ -1,46 +1,64 @@
 import { Link } from "@/i18n/navigation";
-import { QrCode, Heart, ImageDown, ArrowLeftRight } from "lucide-react";
+import { ICON_REGISTRY } from "@/lib/icons";
+import { CATEGORY_STYLES, type ToolCategory } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const iconMap = {
-  QrCode,
-  Heart,
-  ImageDown,
-  ArrowLeftRight,
-} as const;
-
-const colorMap = {
-  "qr-code-generator": "from-violet-500/10 to-purple-500/10 text-violet-600 dark:text-violet-400",
-  "bmi-calculator": "from-rose-500/10 to-pink-500/10 text-rose-600 dark:text-rose-400",
-  "image-compressor": "from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400",
-  "currency-converter": "from-amber-500/10 to-orange-500/10 text-amber-600 dark:text-amber-400",
-} as const;
-
 interface ToolCardProps {
-  id: keyof typeof colorMap;
-  icon: keyof typeof iconMap;
+  id: string;
+  icon: string;
+  category: ToolCategory;
   name: string;
   description: string;
   cta: string;
+  isNew?: boolean;
 }
 
-export function ToolCard({ id, icon, name, description, cta }: ToolCardProps) {
-  const IconComponent = iconMap[icon];
-  const colors = colorMap[id];
+export function ToolCard({
+  id,
+  icon,
+  category,
+  name,
+  description,
+  cta,
+  isNew,
+}: ToolCardProps) {
+  const IconComponent = ICON_REGISTRY[icon];
+  const styles = CATEGORY_STYLES[category];
 
   return (
     <Link
       href={`/tools/${id}` as "/tools/qr-code-generator"}
       className="group relative flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5"
     >
-      <div
-        className={cn(
-          "mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br",
-          colors
-        )}
-      >
-        <IconComponent className="h-6 w-6" />
+      {/* Category badge + New badge */}
+      <div className="mb-4 flex items-center justify-between">
+        <div
+          className={cn(
+            "flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br",
+            styles.gradient,
+            styles.text
+          )}
+        >
+          {IconComponent && <IconComponent className="h-6 w-6" />}
+        </div>
+        <div className="flex items-center gap-1.5">
+          {isNew && (
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary">
+              New
+            </span>
+          )}
+          <span
+            className={cn(
+              "rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-gradient-to-r",
+              styles.gradient,
+              styles.text
+            )}
+          >
+            {category}
+          </span>
+        </div>
       </div>
+
       <h3 className="mb-2 text-lg font-semibold group-hover:text-primary transition-colors">
         {name}
       </h3>

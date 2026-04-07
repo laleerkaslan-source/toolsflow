@@ -83,14 +83,16 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TOOLS.map((tool) => (
+          {TOOLS.slice(0, 8).map((tool) => (
             <ToolCard
               key={tool.id}
               id={tool.id}
               icon={tool.icon}
+              category={tool.category}
               name={t(`tools.${tool.id}.name`)}
               description={t(`tools.${tool.id}.shortDesc`)}
               cta={t("tools.useNow")}
+              isNew={tool.isNew}
             />
           ))}
         </div>

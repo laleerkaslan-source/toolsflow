@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "AraçFlow",
+    "name": "ToolsFlow",
     "description": "Free online tools and AI guides. QR code generator, image compressor, currency converter and more.",
     "tagline": "Digital Tools & AI Guides"
   },
@@ -51,6 +51,31 @@
       "name": "Currency Converter",
       "description": "Convert currencies with real-time exchange rates. 150+ currencies supported.",
       "shortDesc": "Convert currencies with live rates"
+    },
+    "salary-calculator": {
+      "name": "Salary Calculator",
+      "description": "Calculate net salary from gross. Detailed breakdown of SGK, income tax, stamp tax and employer cost. Updated 2026 tax brackets for Turkey.",
+      "shortDesc": "Calculate net salary from gross"
+    },
+    "loan-calculator": {
+      "name": "Loan Calculator",
+      "description": "Calculate monthly payments based on loan amount, interest rate and term. Full amortization schedule with KKDF and BSMV.",
+      "shortDesc": "Calculate loan payments and interest"
+    },
+    "vat-calculator": {
+      "name": "VAT Calculator",
+      "description": "Calculate VAT inclusive or exclusive prices. Supports Turkish VAT rates of 1%, 10% and 20%. Batch calculation mode.",
+      "shortDesc": "Calculate VAT inclusive/exclusive prices"
+    },
+    "severance-calculator": {
+      "name": "Severance Pay Calculator",
+      "description": "Calculate your severance pay. Detailed calculation based on employment duration, gross salary and current ceiling.",
+      "shortDesc": "Calculate your severance pay"
+    },
+    "investment-calculator": {
+      "name": "Investment Calculator",
+      "description": "Calculate investment returns with compound interest. Monthly contributions, inflation adjustment and scenario comparison.",
+      "shortDesc": "Calculate your investment returns"
     },
     "useNow": "Use Now",
     "howToUse": "How to Use",

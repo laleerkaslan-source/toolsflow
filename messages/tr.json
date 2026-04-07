@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "AraçFlow",
+    "name": "ToolsFlow",
     "description": "Ücretsiz online araçlar ve AI rehberleri. QR kod oluşturucu, resim sıkıştırma, döviz çevirici ve daha fazlası.",
     "tagline": "Dijital Araçlar & AI Rehberleri"
   },
@@ -51,6 +51,31 @@
       "name": "Döviz Çevirici",
       "description": "Güncel kurlarla döviz çevirimi yapın. 150+ para birimi desteklenir.",
       "shortDesc": "Güncel kurlarla döviz çevirin"
+    },
+    "salary-calculator": {
+      "name": "Maaş Hesaplayıcı",
+      "description": "Brüt maaştan net maaşa hesaplama. SGK, gelir vergisi, damga vergisi ve işveren maliyeti detaylı dökümü. 2026 güncel vergi dilimleri.",
+      "shortDesc": "Brüt maaştan net maaşa hesaplayın"
+    },
+    "loan-calculator": {
+      "name": "Kredi Hesaplayıcı",
+      "description": "Kredi tutarı, faiz oranı ve vadeye göre aylık taksit hesaplayın. KKDF ve BSMV dahil amortisman tablosu.",
+      "shortDesc": "Kredi taksit ve faiz hesaplayın"
+    },
+    "vat-calculator": {
+      "name": "KDV Hesaplayıcı",
+      "description": "KDV dahil veya hariç fiyat hesaplayın. %1, %10 ve %20 KDV oranları desteklenir. Toplu hesaplama modu.",
+      "shortDesc": "KDV dahil/hariç fiyat hesaplayın"
+    },
+    "severance-calculator": {
+      "name": "Kıdem Tazminatı Hesaplayıcı",
+      "description": "Kıdem tazminatınızı hesaplayın. Çalışma süresi, brüt maaş ve güncel tavan üzerinden detaylı hesaplama.",
+      "shortDesc": "Kıdem tazminatınızı hesaplayın"
+    },
+    "investment-calculator": {
+      "name": "Yatırım Getiri Hesaplayıcı",
+      "description": "Bileşik faiz ile yatırım getirinizi hesaplayın. Aylık katkı, enflasyon düzeltmesi ve senaryo karşılaştırması.",
+      "shortDesc": "Yatırım getirinizi hesaplayın"
     },
     "useNow": "Hemen Kullan",
     "howToUse": "Nasıl Kullanılır?",

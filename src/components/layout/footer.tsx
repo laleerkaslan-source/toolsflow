@@ -5,6 +5,7 @@ import { SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
   const tTools = useTranslations("tools");
 
   return (
@@ -15,18 +16,28 @@ export function Footer() {
             <h3 className="mb-3 text-sm font-semibold">{t("tools")}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/tools/qr-code-generator" className="hover:text-foreground transition-colors">
-                  {tTools("qr-code-generator.name")}
+                <Link href="/tools/salary-calculator" className="hover:text-foreground transition-colors">
+                  {tTools("salary-calculator.name")}
                 </Link>
               </li>
               <li>
-                <Link href="/tools/bmi-calculator" className="hover:text-foreground transition-colors">
-                  {tTools("bmi-calculator.name")}
+                <Link href="/tools/loan-calculator" className="hover:text-foreground transition-colors">
+                  {tTools("loan-calculator.name")}
                 </Link>
               </li>
               <li>
-                <Link href="/tools/image-compressor" className="hover:text-foreground transition-colors">
-                  {tTools("image-compressor.name")}
+                <Link href="/tools/vat-calculator" className="hover:text-foreground transition-colors">
+                  {tTools("vat-calculator.name")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/severance-calculator" className="hover:text-foreground transition-colors">
+                  {tTools("severance-calculator.name")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/investment-calculator" className="hover:text-foreground transition-colors">
+                  {tTools("investment-calculator.name")}
                 </Link>
               </li>
               <li>
@@ -53,12 +64,12 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/about" className="hover:text-foreground transition-colors">
-                  {t("company")}
+                  Lale Dijital
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-foreground transition-colors">
-                  İletişim
+                  {tNav("contact")}
                 </Link>
               </li>
             </ul>

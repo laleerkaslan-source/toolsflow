@@ -6,6 +6,7 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Menu, X, Wrench, Bot, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SITE_NAME } from "@/lib/constants";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function Header() {
   const t = useTranslations("nav");
@@ -30,7 +31,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-sm font-black">
-            D
+            T
           </div>
           {SITE_NAME}
         </Link>
@@ -58,6 +59,7 @@ export function Header() {
             <Globe className="h-4 w-4" />
             {t("switchLang")}
           </button>
+          <ThemeToggle />
         </nav>
 
         <button
@@ -88,16 +90,19 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                switchLocale();
-                setMobileOpen(false);
-              }}
-              className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent"
-            >
-              <Globe className="h-4 w-4" />
-              {t("switchLang")}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  switchLocale();
+                  setMobileOpen(false);
+                }}
+                className="flex flex-1 items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent"
+              >
+                <Globe className="h-4 w-4" />
+                {t("switchLang")}
+              </button>
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}

@@ -30,9 +30,10 @@ export default function AboutPage() {
         {isTr ? (
           <>
             <p>
-              <strong className="text-foreground">{SITE_NAME}</strong>, günlük dijital
-              ihtiyaçlarınız için ücretsiz online araçlar ve yapay zeka rehberleri sunan
-              bir platformdur.
+              <strong className="text-foreground">{SITE_NAME}</strong>,{" "}
+              <strong className="text-foreground">Lale Dijital</strong> tarafından
+              geliştirilen, günlük dijital ihtiyaçlarınız için ücretsiz online araçlar
+              ve yapay zeka rehberleri sunan bir platformdur.
             </p>
             <p>
               Amacımız, herkesin kolayca erişebileceği, hızlı ve güvenli araçlar
@@ -40,15 +41,17 @@ export default function AboutPage() {
               sunucularımıza gönderilmez.
             </p>
             <p>
-              QR kod oluşturucu, resim sıkıştırma, VKİ hesaplayıcı ve döviz çevirici
-              gibi araçlarımızın yanı sıra, yapay zeka dünyasındaki en son gelişmeleri
-              takip edebileceğiniz rehberler de sunuyoruz.
+              Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı, kıdem tazminatı
+              hesaplayıcı gibi Türkiye&apos;ye özel finans araçlarımızın yanı sıra, QR kod
+              oluşturucu, resim sıkıştırma, VKİ hesaplayıcı ve döviz çevirici gibi
+              araçlar da sunuyoruz.
             </p>
           </>
         ) : (
           <>
             <p>
               <strong className="text-foreground">{SITE_NAME}</strong> is a platform
+              developed by <strong className="text-foreground">Lale Dijital</strong>,
               providing free online tools and AI guides for your daily digital needs.
             </p>
             <p>
@@ -57,9 +60,9 @@ export default function AboutPage() {
               our servers.
             </p>
             <p>
-              Along with tools like QR code generator, image compressor, BMI calculator,
-              and currency converter, we also offer guides to help you stay up to date
-              with the latest developments in the AI world.
+              We offer Turkey-specific finance tools like salary calculator, loan
+              calculator, VAT calculator and severance pay calculator, along with QR
+              code generator, image compressor, BMI calculator and currency converter.
             </p>
           </>
         )}
