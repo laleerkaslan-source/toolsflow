@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Bileşik faiz ile yatırım getirinizi hesaplayın. Aylık katkı, enflasyon düzeltmesi ve senaryo karşılaştırması. Ücretsiz yatırım hesaplama aracı."
       : "Calculate investment returns with compound interest. Monthly contributions, inflation adjustment and scenario comparison.",
     alternates: {
+      canonical: isTr ? "/araclar/yatirim-hesaplayici" : "/en/tools/investment-calculator",
       languages: {
         tr: "/araclar/yatirim-hesaplayici",
         en: "/en/tools/investment-calculator",

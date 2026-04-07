@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Ücretsiz VKİ hesaplayıcı. Boy ve kilonuzu girerek Vücut Kitle İndeksinizi hesaplayın ve sağlık durumunuzu öğrenin."
       : "Free BMI calculator. Calculate your Body Mass Index by entering your height and weight to learn your health status.",
     alternates: {
+      canonical: isTr ? "/araclar/vki-hesaplayici" : "/en/tools/bmi-calculator",
       languages: {
         tr: "/araclar/vki-hesaplayici",
         en: "/en/tools/bmi-calculator",

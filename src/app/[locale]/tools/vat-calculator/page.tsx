@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "KDV dahil veya hariç fiyat hesaplayın. %1, %10 ve %20 KDV oranları. Toplu hesaplama modu. Ücretsiz online KDV hesaplama aracı."
       : "Calculate VAT inclusive or exclusive prices. Supports 1%, 10% and 20% Turkish VAT rates. Batch calculation mode.",
     alternates: {
+      canonical: isTr ? "/araclar/kdv-hesaplayici" : "/en/tools/vat-calculator",
       languages: {
         tr: "/araclar/kdv-hesaplayici",
         en: "/en/tools/vat-calculator",

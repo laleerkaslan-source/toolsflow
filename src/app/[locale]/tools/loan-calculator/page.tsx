@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Kredi tutarı, faiz oranı ve vadeye göre aylık taksit hesaplayın. KKDF ve BSMV dahil amortisman tablosu. Ücretsiz kredi hesaplama aracı."
       : "Calculate monthly payments based on loan amount, interest rate and term. Full amortization schedule with KKDF and BSMV.",
     alternates: {
+      canonical: isTr ? "/araclar/kredi-hesaplayici" : "/en/tools/loan-calculator",
       languages: {
         tr: "/araclar/kredi-hesaplayici",
         en: "/en/tools/loan-calculator",

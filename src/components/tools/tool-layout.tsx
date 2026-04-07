@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { AdUnit } from "@/components/ads/ad-unit";
-import { BreadcrumbJsonLd, ToolJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, ToolJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { SITE_URL } from "@/lib/constants";
 
 interface ToolLayoutProps {
@@ -30,6 +30,7 @@ export function ToolLayout({ toolId, locale, children, faq }: ToolLayoutProps) {
           { name: toolName, url: `${isTr ? "/araclar" : "/en/tools"}/${toolId}` },
         ]}
       />
+      {faq && <FaqJsonLd items={faq} />}
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_300px]">

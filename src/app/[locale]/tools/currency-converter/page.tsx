@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Ücretsiz döviz çevirici. Güncel kurlarla dolar, euro, TL ve 150+ para birimi arasında çeviri yapın."
       : "Free currency converter. Convert between USD, EUR, TRY and 150+ currencies with real-time exchange rates.",
     alternates: {
+      canonical: isTr ? "/araclar/doviz-cevirici" : "/en/tools/currency-converter",
       languages: {
         tr: "/araclar/doviz-cevirici",
         en: "/en/tools/currency-converter",

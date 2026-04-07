@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ToolCard } from "@/components/tools/tool-card";
 import { AdUnit } from "@/components/ads/ad-unit";
@@ -8,10 +8,11 @@ import { ArrowRight, Zap, Shield, Globe } from "lucide-react";
 
 export default function HomePage() {
   const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <>
-      <WebsiteJsonLd locale="tr" />
+      <WebsiteJsonLd locale={locale} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">

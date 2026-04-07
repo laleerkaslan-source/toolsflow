@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Ücretsiz QR kod oluşturucu. URL, metin veya iletişim bilgilerinizden anında QR kod oluşturun ve PNG olarak indirin."
       : "Free QR code generator. Create QR codes instantly from URLs, text or contact info. Download as PNG.",
     alternates: {
+      canonical: isTr ? "/araclar/qr-kod-olusturucu" : "/en/tools/qr-code-generator",
       languages: {
         tr: "/araclar/qr-kod-olusturucu",
         en: "/en/tools/qr-code-generator",

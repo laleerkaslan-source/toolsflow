@@ -1,56 +1,61 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, TOOLS } from "@/lib/constants";
+
+// Tool ID → Turkish slug mapping (must match routing.ts)
+const TOOL_TR_SLUGS: Record<string, string> = {
+  "qr-code-generator": "qr-kod-olusturucu",
+  "bmi-calculator": "vki-hesaplayici",
+  "image-compressor": "resim-sikistirma",
+  "currency-converter": "doviz-cevirici",
+  "salary-calculator": "maas-hesaplayici",
+  "loan-calculator": "kredi-hesaplayici",
+  "vat-calculator": "kdv-hesaplayici",
+  "severance-calculator": "kidem-tazminati-hesaplayici",
+  "investment-calculator": "yatirim-hesaplayici",
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const tools = [
-    "qr-code-generator",
-    "bmi-calculator",
-    "image-compressor",
-    "currency-converter",
-  ];
-
   const staticPages = [
-    { path: "", trPath: "" },
-    { path: "/en/tools", trPath: "/araclar" },
-    { path: "/en/ai-guide", trPath: "/ai-rehber" },
-    { path: "/en/about", trPath: "/hakkimizda" },
-    { path: "/en/privacy", trPath: "/gizlilik-politikasi" },
+    { en: "", tr: "", priority: 1 },
+    { en: "/en/tools", tr: "/araclar", priority: 0.9 },
+    { en: "/en/ai-guide", tr: "/ai-rehber", priority: 0.8 },
+    { en: "/en/about", tr: "/hakkimizda", priority: 0.5 },
+    { en: "/en/contact", tr: "/iletisim", priority: 0.5 },
+    { en: "/en/privacy", tr: "/gizlilik-politikasi", priority: 0.3 },
   ];
-
-  const toolPathMap: Record<string, string> = {
-    "qr-code-generator": "qr-kod-olusturucu",
-    "bmi-calculator": "vki-hesaplayici",
-    "image-compressor": "resim-sikistirma",
-    "currency-converter": "doviz-cevirici",
-  };
 
   const entries: MetadataRoute.Sitemap = [];
 
+  // Static pages
   for (const page of staticPages) {
     entries.push({
-      url: `${SITE_URL}${page.trPath}`,
+      url: `${SITE_URL}${page.tr}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: page.trPath === "" ? 1 : 0.8,
+      changeFrequency: page.priority >= 0.8 ? "weekly" : "monthly",
+      priority: page.priority,
       alternates: {
         languages: {
-          tr: `${SITE_URL}${page.trPath}`,
-          en: `${SITE_URL}${page.path}`,
+          tr: `${SITE_URL}${page.tr}`,
+          en: `${SITE_URL}${page.en}`,
         },
       },
     });
   }
 
-  for (const tool of tools) {
+  // Tool pages — automatically from TOOLS array
+  for (const tool of TOOLS) {
+    const trSlug = TOOL_TR_SLUGS[tool.id];
+    if (!trSlug) continue;
+
     entries.push({
-      url: `${SITE_URL}/araclar/${toolPathMap[tool]}`,
+      url: `${SITE_URL}/araclar/${trSlug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: tool.category === "finance" ? 0.9 : 0.8,
       alternates: {
         languages: {
-          tr: `${SITE_URL}/araclar/${toolPathMap[tool]}`,
-          en: `${SITE_URL}/en/tools/${tool}`,
+          tr: `${SITE_URL}/araclar/${trSlug}`,
+          en: `${SITE_URL}/en/tools/${tool.id}`,
         },
       },
     });

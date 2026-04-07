@@ -33,8 +33,8 @@ export async function generateMetadata({
       template: `%s | ${SITE_NAME}`,
     },
     description: isTr
-      ? "Ücretsiz online araçlar ve AI rehberleri. QR kod oluşturucu, resim sıkıştırma, döviz çevirici ve daha fazlası."
-      : "Free online tools and AI guides. QR code generator, image compressor, currency converter and more.",
+      ? "Ücretsiz online araçlar. Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı, kıdem tazminatı, yatırım getiri hesaplayıcı ve daha fazlası."
+      : "Free online tools. Salary calculator, loan calculator, VAT calculator, severance pay, investment return calculator and more.",
     metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: isTr ? "/" : "/en",
@@ -46,6 +46,30 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
+      locale: isTr ? "tr_TR" : "en_US",
+      url: isTr ? SITE_URL : `${SITE_URL}/en`,
+      title: `${SITE_NAME} — ${isTr ? "Ücretsiz Online Araçlar" : "Free Online Tools"}`,
+      description: isTr
+        ? "Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı ve daha fazlası. Tamamen ücretsiz."
+        : "Salary calculator, loan calculator, VAT calculator and more. Completely free.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${SITE_NAME} — ${isTr ? "Ücretsiz Online Araçlar" : "Free Online Tools"}`,
+      description: isTr
+        ? "Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı ve daha fazlası."
+        : "Salary calculator, loan calculator, VAT calculator and more.",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }

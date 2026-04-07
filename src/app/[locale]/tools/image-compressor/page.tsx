@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Ücretsiz resim sıkıştırma aracı. Resimlerinizi kaliteden ödün vermeden küçültün. JPEG, PNG ve WebP desteklenir."
       : "Free image compressor tool. Reduce image file sizes without losing quality. JPEG, PNG and WebP supported.",
     alternates: {
+      canonical: isTr ? "/araclar/resim-sikistirma" : "/en/tools/image-compressor",
       languages: {
         tr: "/araclar/resim-sikistirma",
         en: "/en/tools/image-compressor",

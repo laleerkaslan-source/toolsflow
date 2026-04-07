@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Kıdem tazminatınızı hesaplayın. Çalışma süresi, brüt maaş ve güncel tavan üzerinden detaylı hesaplama. 2026 güncel tavan tutarları."
       : "Calculate your severance pay. Detailed calculation based on employment duration, gross salary and current ceiling. Updated 2026 ceilings.",
     alternates: {
+      canonical: isTr ? "/araclar/kidem-tazminati-hesaplayici" : "/en/tools/severance-calculator",
       languages: {
         tr: "/araclar/kidem-tazminati-hesaplayici",
         en: "/en/tools/severance-calculator",

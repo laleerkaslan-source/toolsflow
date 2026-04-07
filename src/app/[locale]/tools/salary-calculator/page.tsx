@@ -15,6 +15,7 @@ export async function generateMetadata({
       ? "Brüt maaştan net maaşa hesaplama. SGK, gelir vergisi, damga vergisi ve işveren maliyeti detaylı dökümü. 2026 güncel vergi dilimleri."
       : "Calculate net salary from gross. Detailed breakdown of SGK, income tax, stamp tax and employer cost. Updated 2026 tax brackets for Turkey.",
     alternates: {
+      canonical: isTr ? "/araclar/maas-hesaplayici" : "/en/tools/salary-calculator",
       languages: {
         tr: "/araclar/maas-hesaplayici",
         en: "/en/tools/salary-calculator",
