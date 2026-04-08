@@ -60,6 +60,9 @@ export async function generateMetadata({
         ? "Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı ve daha fazlası."
         : "Salary calculator, loan calculator, VAT calculator and more.",
     },
+    verification: {
+      google: "google7f4a58544c1a9296",
+    },
     robots: {
       index: true,
       follow: true,
