@@ -104,6 +104,17 @@ export default async function LocaleLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
           }}
         />
+        {/* Google Funding Choices — GDPR/EEA cookie consent */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.googlefc=window.googlefc||{};googlefc.callbackQueue=googlefc.callbackQueue||[];`,
+          }}
+        />
+        <script
+          async
+          src={`https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT_ID}?ers=1`}
+        />
+        {/* Google AdSense */}
         <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
