@@ -8,7 +8,6 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { SITE_NAME, SITE_URL, ADSENSE_CLIENT_ID } from "@/lib/constants";
-import Script from "next/script";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -105,14 +104,13 @@ export default async function LocaleLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
           }}
         />
-      </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Script
+        <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <Header />
