@@ -7,7 +7,8 @@ import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/lib/theme-provider";
-import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_URL, ADSENSE_CLIENT_ID } from "@/lib/constants";
+import Script from "next/script";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -106,6 +107,12 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <Header />

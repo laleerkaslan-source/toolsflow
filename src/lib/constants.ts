@@ -1,6 +1,6 @@
 export const SITE_NAME = "ToolsFlow";
 export const SITE_URL = "https://toolsflow.net";
-export const ADSENSE_CLIENT_ID = "ca-pub-XXXXXXXXXXXXXXXX"; // Replace with real ID
+export const ADSENSE_CLIENT_ID = "ca-pub-2228488749646134";
 
 export type ToolCategory =
   | "finance"
