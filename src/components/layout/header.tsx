@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { Menu, X, Wrench, Bot, Globe } from "lucide-react";
+import { Menu, X, Wrench, Bot, Globe, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SITE_NAME } from "@/lib/constants";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -17,6 +17,7 @@ export function Header() {
 
   const navLinks = [
     { href: "/tools" as const, label: t("tools"), icon: Wrench },
+    { href: "/blog" as const, label: "Blog", icon: BookOpen },
     { href: "/ai-guide" as const, label: t("aiGuide"), icon: Bot },
     { href: "/about" as const, label: t("about"), icon: null },
   ];

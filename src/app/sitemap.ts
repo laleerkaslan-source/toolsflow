@@ -61,5 +61,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Blog posts
+  const blogPosts = [
+    "brut-net-maas-hesaplama-2025",
+    "kdv-oranlari-2025",
+    "kidem-tazminati-hesaplama-2025",
+  ];
+
+  // Blog listing page
+  entries.push({
+    url: `${SITE_URL}/blog`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+    alternates: {
+      languages: {
+        tr: `${SITE_URL}/blog`,
+        en: `${SITE_URL}/en/blog`,
+      },
+    },
+  });
+
+  for (const slug of blogPosts) {
+    entries.push({
+      url: `${SITE_URL}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          tr: `${SITE_URL}/blog/${slug}`,
+          en: `${SITE_URL}/en/blog/${slug}`,
+        },
+      },
+    });
+  }
+
   return entries;
 }

@@ -82,6 +82,52 @@ export function FaqJsonLd({ items }: { items: { q: string; a: string }[] }) {
   );
 }
 
+export function ArticleJsonLd({
+  title,
+  description,
+  url,
+  datePublished,
+  dateModified,
+  author,
+  locale,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  author: string;
+  locale: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description,
+        url,
+        datePublished,
+        dateModified: dateModified ?? datePublished,
+        author: {
+          "@type": "Organization",
+          name: author,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        inLanguage: locale === "tr" ? "tr-TR" : "en-US",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": url,
+        },
+      }}
+    />
+  );
+}
+
 export function BreadcrumbJsonLd({
   items,
 }: {

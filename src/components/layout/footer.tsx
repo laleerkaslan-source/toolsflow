@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Heart } from "lucide-react";
 import { SITE_NAME } from "@/lib/constants";
@@ -7,6 +7,8 @@ export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
   const tTools = useTranslations("tools");
+  const locale = useLocale();
+  const isTr = locale === "tr";
 
   return (
     <footer className="border-t border-border bg-muted/30">
@@ -49,11 +51,26 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-3 text-sm font-semibold">{t("guides")}</h3>
+            <h3 className="mb-3 text-sm font-semibold">Blog</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
+                <Link href={"/blog/brut-net-maas-hesaplama-2025" as "/"} className="hover:text-foreground transition-colors">
+                  {isTr ? "Brut Net Maas Hesaplama" : "Gross Net Salary Guide"}
+                </Link>
+              </li>
+              <li>
+                <Link href={"/blog/kdv-oranlari-2025" as "/"} className="hover:text-foreground transition-colors">
+                  {isTr ? "KDV Oranlari 2025" : "VAT Rates 2025"}
+                </Link>
+              </li>
+              <li>
+                <Link href={"/blog/kidem-tazminati-hesaplama-2025" as "/"} className="hover:text-foreground transition-colors">
+                  {isTr ? "Kidem Tazminati Hesaplama" : "Severance Pay Guide"}
+                </Link>
+              </li>
+              <li>
                 <Link href="/ai-guide" className="hover:text-foreground transition-colors">
-                  AI Rehber
+                  {isTr ? "AI Rehber" : "AI Guide"}
                 </Link>
               </li>
             </ul>
