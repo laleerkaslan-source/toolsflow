@@ -55,17 +55,17 @@ export const routing = defineRouting({
       tr: "/blog",
       en: "/blog",
     },
-    "/blog/brut-net-maas-hesaplama-2025": {
-      tr: "/blog/brut-net-maas-hesaplama-2025",
-      en: "/blog/brut-net-maas-hesaplama-2025",
+    "/blog/brut-net-maas-hesaplama-2026": {
+      tr: "/blog/brut-net-maas-hesaplama-2026",
+      en: "/blog/brut-net-maas-hesaplama-2026",
     },
-    "/blog/kdv-oranlari-2025": {
-      tr: "/blog/kdv-oranlari-2025",
-      en: "/blog/kdv-oranlari-2025",
+    "/blog/kdv-oranlari-2026": {
+      tr: "/blog/kdv-oranlari-2026",
+      en: "/blog/kdv-oranlari-2026",
     },
-    "/blog/kidem-tazminati-hesaplama-2025": {
-      tr: "/blog/kidem-tazminati-hesaplama-2025",
-      en: "/blog/kidem-tazminati-hesaplama-2025",
+    "/blog/kidem-tazminati-hesaplama-2026": {
+      tr: "/blog/kidem-tazminati-hesaplama-2026",
+      en: "/blog/kidem-tazminati-hesaplama-2026",
     },
     // Guides
     "/ai-guide": {

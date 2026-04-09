@@ -54,17 +54,17 @@ export function Footer() {
             <h3 className="mb-3 text-sm font-semibold">Blog</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href={"/blog/brut-net-maas-hesaplama-2025" as "/"} className="hover:text-foreground transition-colors">
+                <Link href={"/blog/brut-net-maas-hesaplama-2026" as "/"} className="hover:text-foreground transition-colors">
                   {isTr ? "Brut Net Maas Hesaplama" : "Gross Net Salary Guide"}
                 </Link>
               </li>
               <li>
-                <Link href={"/blog/kdv-oranlari-2025" as "/"} className="hover:text-foreground transition-colors">
-                  {isTr ? "KDV Oranlari 2025" : "VAT Rates 2025"}
+                <Link href={"/blog/kdv-oranlari-2026" as "/"} className="hover:text-foreground transition-colors">
+                  {isTr ? "KDV Oranlari 2026" : "VAT Rates 2026"}
                 </Link>
               </li>
               <li>
-                <Link href={"/blog/kidem-tazminati-hesaplama-2025" as "/"} className="hover:text-foreground transition-colors">
+                <Link href={"/blog/kidem-tazminati-hesaplama-2026" as "/"} className="hover:text-foreground transition-colors">
                   {isTr ? "Kidem Tazminati Hesaplama" : "Severance Pay Guide"}
                 </Link>
               </li>

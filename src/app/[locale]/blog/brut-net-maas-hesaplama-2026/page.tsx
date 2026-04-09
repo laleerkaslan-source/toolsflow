@@ -10,18 +10,18 @@ export async function generateMetadata({
   const isTr = locale === "tr";
   return {
     title: isTr
-      ? "2025-2026 Brut Net Maas Hesaplama Rehberi — SGK, Vergi Dilimleri"
-      : "2025-2026 Gross to Net Salary Guide — SSI, Tax Brackets (Turkey)",
+      ? "2026-2026 Brut Net Maas Hesaplama Rehberi — SGK, Vergi Dilimleri"
+      : "2026-2026 Gross to Net Salary Guide — SSI, Tax Brackets (Turkey)",
     description: isTr
       ? "Brut maas ile net maas arasindaki farki ogren. SGK primi %14, gelir vergisi dilimleri (%15-%40), damga vergisi ve asgari ucret istisnasi. Guncel 2026 oranlari."
       : "Learn the difference between gross and net salary in Turkey. SSI premium 14%, income tax brackets (15%-40%), stamp tax and minimum wage exemption. Updated 2026 rates.",
     alternates: {
       canonical: isTr
-        ? "/blog/brut-net-maas-hesaplama-2025"
-        : "/en/blog/brut-net-maas-hesaplama-2025",
+        ? "/blog/brut-net-maas-hesaplama-2026"
+        : "/en/blog/brut-net-maas-hesaplama-2026",
       languages: {
-        tr: "/blog/brut-net-maas-hesaplama-2025",
-        en: "/en/blog/brut-net-maas-hesaplama-2025",
+        tr: "/blog/brut-net-maas-hesaplama-2026",
+        en: "/en/blog/brut-net-maas-hesaplama-2026",
       },
     },
   };
@@ -75,11 +75,11 @@ export default async function BrutNetMaasPage({
 
   return (
     <BlogLayout
-      slug="brut-net-maas-hesaplama-2025"
+      slug="brut-net-maas-hesaplama-2026"
       title={
         isTr
-          ? "2025-2026 Brut Net Maas Hesaplama Rehberi"
-          : "2025-2026 Gross to Net Salary Calculation Guide (Turkey)"
+          ? "2026-2026 Brut Net Maas Hesaplama Rehberi"
+          : "2026-2026 Gross to Net Salary Calculation Guide (Turkey)"
       }
       description={
         isTr

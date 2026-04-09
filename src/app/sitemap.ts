@@ -63,9 +63,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts
   const blogPosts = [
-    "brut-net-maas-hesaplama-2025",
-    "kdv-oranlari-2025",
-    "kidem-tazminati-hesaplama-2025",
+    "brut-net-maas-hesaplama-2026",
+    "kdv-oranlari-2026",
+    "kidem-tazminati-hesaplama-2026",
   ];
 
   // Blog listing page

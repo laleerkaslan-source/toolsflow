@@ -10,18 +10,18 @@ export async function generateMetadata({
   const isTr = locale === "tr";
   return {
     title: isTr
-      ? "KDV Oranlari 2025 Guncel Liste — %1, %10, %20 Hangi Urune?"
-      : "Turkey VAT Rates 2025 — Complete List of 1%, 10%, 20% Rates",
+      ? "KDV Oranlari 2026 Guncel Liste — %1, %10, %20 Hangi Urune?"
+      : "Turkey VAT Rates 2026 — Complete List of 1%, 10%, 20% Rates",
     description: isTr
       ? "Turkiye'deki guncel KDV oranlari: %1, %10, %20. Gida, saglik, egitim, elektronik ve diger urunlerin KDV oranlari. Orneklerle tam rehber."
       : "Current VAT rates in Turkey: 1%, 10%, 20%. VAT rates for food, health, education, electronics and more. Complete guide with examples.",
     alternates: {
       canonical: isTr
-        ? "/blog/kdv-oranlari-2025"
-        : "/en/blog/kdv-oranlari-2025",
+        ? "/blog/kdv-oranlari-2026"
+        : "/en/blog/kdv-oranlari-2026",
       languages: {
-        tr: "/blog/kdv-oranlari-2025",
-        en: "/en/blog/kdv-oranlari-2025",
+        tr: "/blog/kdv-oranlari-2026",
+        en: "/en/blog/kdv-oranlari-2026",
       },
     },
   };
@@ -75,11 +75,11 @@ export default async function KdvOranlariPage({
 
   return (
     <BlogLayout
-      slug="kdv-oranlari-2025"
+      slug="kdv-oranlari-2026"
       title={
         isTr
-          ? "KDV Oranlari 2025 Guncel Liste — Hangi Urune Kac KDV?"
-          : "Turkey VAT Rates 2025 — Complete Updated List"
+          ? "KDV Oranlari 2026 Guncel Liste — Hangi Urune Kac KDV?"
+          : "Turkey VAT Rates 2026 — Complete Updated List"
       }
       description={
         isTr
@@ -103,7 +103,7 @@ export default async function KdvOranlariPage({
             asama da toplanir ve devlete odenir.
           </p>
 
-          <h2>Guncel KDV Oranlari (2025)</h2>
+          <h2>Guncel KDV Oranlari (2026)</h2>
           <p>
             Turkiye&apos;de 3 farkli KDV orani uygulanmaktadir:
           </p>
@@ -210,7 +210,7 @@ export default async function KdvOranlariPage({
             collected at every stage and paid to the government.
           </p>
 
-          <h2>Current VAT Rates (2025)</h2>
+          <h2>Current VAT Rates (2026)</h2>
           <p>Turkey applies 3 different VAT rates:</p>
 
           <h3>1% VAT — Basic Food Items</h3>

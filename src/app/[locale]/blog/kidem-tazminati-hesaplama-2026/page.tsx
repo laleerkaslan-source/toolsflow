@@ -10,18 +10,18 @@ export async function generateMetadata({
   const isTr = locale === "tr";
   return {
     title: isTr
-      ? "Kidem Tazminati Hesaplama 2025 — Tavan, Sartlar, Ornek"
-      : "Severance Pay Calculation 2025 Turkey — Ceiling, Conditions, Examples",
+      ? "Kidem Tazminati Hesaplama 2026 — Tavan, Sartlar, Ornek"
+      : "Severance Pay Calculation 2026 Turkey — Ceiling, Conditions, Examples",
     description: isTr
-      ? "Kidem tazminati nasil hesaplanir? 2025 guncel tavan tutari, hak kazanma sartlari, damga vergisi, ihbar suresi ve ornek hesaplamalar."
-      : "How is severance pay calculated in Turkey? 2025 ceiling, eligibility, stamp tax, notice period and example calculations.",
+      ? "Kidem tazminati nasil hesaplanir? 2026 guncel tavan tutari, hak kazanma sartlari, damga vergisi, ihbar suresi ve ornek hesaplamalar."
+      : "How is severance pay calculated in Turkey? 2026 ceiling, eligibility, stamp tax, notice period and example calculations.",
     alternates: {
       canonical: isTr
-        ? "/blog/kidem-tazminati-hesaplama-2025"
-        : "/en/blog/kidem-tazminati-hesaplama-2025",
+        ? "/blog/kidem-tazminati-hesaplama-2026"
+        : "/en/blog/kidem-tazminati-hesaplama-2026",
       languages: {
-        tr: "/blog/kidem-tazminati-hesaplama-2025",
-        en: "/en/blog/kidem-tazminati-hesaplama-2025",
+        tr: "/blog/kidem-tazminati-hesaplama-2026",
+        en: "/en/blog/kidem-tazminati-hesaplama-2026",
       },
     },
   };
@@ -46,8 +46,8 @@ export default async function KidemTazminatiPage({
           a: "Normal istifada kidem tazminati hakkiniz yoktur. Ancak evlilik (kadin), askerlik, emeklilik, saglik sorunlari gibi hakli nedenlerle istifa ederseniz kidem tazminati alabilirsiniz.",
         },
         {
-          q: "2025 kidem tazminati tavani ne kadar?",
-          a: "2025 yili ikinci yarisi (Temmuz-Aralik) icin kidem tazminati tavani 44.764,27 TL'dir. Brut maasiniz bu tutarin uzerinde olsa bile her yil icin en fazla tavan tutari kadar tazminat alabilirsiniz.",
+          q: "2026 kidem tazminati tavani ne kadar?",
+          a: "2026 yili ikinci yarisi (Temmuz-Aralik) icin kidem tazminati tavani 44.764,27 TL'dir. Brut maasiniz bu tutarin uzerinde olsa bile her yil icin en fazla tavan tutari kadar tazminat alabilirsiniz.",
         },
         {
           q: "Kidem tazminatindan vergi kesilir mi?",
@@ -68,8 +68,8 @@ export default async function KidemTazminatiPage({
           a: "Normal resignation does not qualify for severance pay. However, you can receive it if you resign for justified reasons: marriage (women), military service, retirement, or health issues.",
         },
         {
-          q: "What is the 2025 severance pay ceiling?",
-          a: "The ceiling for the second half of 2025 (July-December) is 44,764.27 TL. Even if your gross salary is higher, you can receive a maximum of this ceiling amount per year of service.",
+          q: "What is the 2026 severance pay ceiling?",
+          a: "The ceiling for the second half of 2026 (July-December) is 44,764.27 TL. Even if your gross salary is higher, you can receive a maximum of this ceiling amount per year of service.",
         },
         {
           q: "Is severance pay taxed?",
@@ -83,11 +83,11 @@ export default async function KidemTazminatiPage({
 
   return (
     <BlogLayout
-      slug="kidem-tazminati-hesaplama-2025"
+      slug="kidem-tazminati-hesaplama-2026"
       title={
         isTr
-          ? "Kidem Tazminati Hesaplama 2025 — Tavan, Sartlar ve Ornek"
-          : "Severance Pay Calculation 2025 in Turkey — Ceiling, Conditions & Examples"
+          ? "Kidem Tazminati Hesaplama 2026 — Tavan, Sartlar ve Ornek"
+          : "Severance Pay Calculation 2026 in Turkey — Ceiling, Conditions & Examples"
       }
       description={
         isTr
@@ -140,7 +140,7 @@ export default async function KidemTazminatiPage({
             <li>Aile ve cocuk yardimi</li>
           </ul>
 
-          <h2>2025 Kidem Tazminati Tavani</h2>
+          <h2>2026 Kidem Tazminati Tavani</h2>
           <table>
             <thead>
               <tr>
@@ -150,11 +150,11 @@ export default async function KidemTazminatiPage({
             </thead>
             <tbody>
               <tr>
-                <td>2025 Ocak - Haziran</td>
+                <td>2026 Ocak - Haziran</td>
                 <td>41.828,42 TL</td>
               </tr>
               <tr>
-                <td>2025 Temmuz - Aralik</td>
+                <td>2026 Temmuz - Aralik</td>
                 <td>44.764,27 TL</td>
               </tr>
               <tr>
@@ -264,7 +264,7 @@ export default async function KidemTazminatiPage({
             <li>Family and child benefits</li>
           </ul>
 
-          <h2>2025 Severance Pay Ceiling</h2>
+          <h2>2026 Severance Pay Ceiling</h2>
           <table>
             <thead>
               <tr>
@@ -274,11 +274,11 @@ export default async function KidemTazminatiPage({
             </thead>
             <tbody>
               <tr>
-                <td>2025 January - June</td>
+                <td>2026 January - June</td>
                 <td>41,828.42 TL</td>
               </tr>
               <tr>
-                <td>2025 July - December</td>
+                <td>2026 July - December</td>
                 <td>44,764.27 TL</td>
               </tr>
               <tr>

@@ -6,11 +6,11 @@ import { Calendar, ArrowRight } from "lucide-react";
 
 export const BLOG_POSTS = [
   {
-    slug: "brut-net-maas-hesaplama-2025",
+    slug: "brut-net-maas-hesaplama-2026",
     date: "2026-04-09",
     title: {
-      tr: "2025-2026 Brut Net Maas Hesaplama Rehberi",
-      en: "2025-2026 Gross to Net Salary Calculation Guide (Turkey)",
+      tr: "2026-2026 Brut Net Maas Hesaplama Rehberi",
+      en: "2026-2026 Gross to Net Salary Calculation Guide (Turkey)",
     },
     description: {
       tr: "Brut maas ile net maas arasindaki fark, SGK primi, gelir vergisi dilimleri ve asgari ucret istisnasi. Guncel vergi oranlariyla detayli rehber.",
@@ -19,11 +19,11 @@ export const BLOG_POSTS = [
     category: { tr: "Finans", en: "Finance" },
   },
   {
-    slug: "kdv-oranlari-2025",
+    slug: "kdv-oranlari-2026",
     date: "2026-04-09",
     title: {
-      tr: "KDV Oranlari 2025 Guncel Liste — Hangi Urune Kac KDV?",
-      en: "Turkey VAT Rates 2025 — Complete Updated List",
+      tr: "KDV Oranlari 2026 Guncel Liste — Hangi Urune Kac KDV?",
+      en: "Turkey VAT Rates 2026 — Complete Updated List",
     },
     description: {
       tr: "Turkiye'deki guncel KDV oranlari: %1, %10 ve %20. Hangi urunlere hangi KDV orani uygulanir? Tam liste ve orneklerle rehber.",
@@ -32,11 +32,11 @@ export const BLOG_POSTS = [
     category: { tr: "Finans", en: "Finance" },
   },
   {
-    slug: "kidem-tazminati-hesaplama-2025",
+    slug: "kidem-tazminati-hesaplama-2026",
     date: "2026-04-09",
     title: {
-      tr: "Kidem Tazminati Hesaplama 2025 — Tavan, Sartlar ve Ornek",
-      en: "Severance Pay Calculation 2025 in Turkey — Ceiling, Conditions & Examples",
+      tr: "Kidem Tazminati Hesaplama 2026 — Tavan, Sartlar ve Ornek",
+      en: "Severance Pay Calculation 2026 in Turkey — Ceiling, Conditions & Examples",
     },
     description: {
       tr: "Kidem tazminati nasil hesaplanir? Guncel tavan tutari, hak kazanma sartlari, damga vergisi kesintisi ve ornek hesaplamalar.",
