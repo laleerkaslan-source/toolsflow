@@ -114,6 +114,16 @@ export default async function LocaleLayout({
           async
           src={`https://fundingchoicesmessages.google.com/i/${ADSENSE_CLIENT_ID}?ers=1`}
         />
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-YEWGCYWYCZ"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YEWGCYWYCZ');`,
+          }}
+        />
         {/* Google AdSense */}
         <script
           async
