@@ -24,9 +24,30 @@
       "viewAll": "View All Tools"
     },
     "guidesSection": {
-      "title": "AI Guides",
-      "subtitle": "Latest developments and comparisons in the AI world",
-      "viewAll": "View All Guides"
+      "title": "Blog Posts",
+      "subtitle": "Finance, tax and calculation guides",
+      "viewAll": "View All Posts"
+    },
+    "whySection": {
+      "title": "Why ToolsFlow?",
+      "intro": "ToolsFlow is a free platform offering Turkey-specific financial calculation tools. Calculate salary, loan payments, VAT, severance pay and investment returns in seconds — with up-to-date tax brackets and rates.",
+      "feature1Title": "Updated Tax Brackets",
+      "feature1Desc": "Calculations use 2026 income tax brackets, SSI premium ceilings and minimum wage amounts. Data is updated every new period automatically.",
+      "feature2Title": "Completely Free",
+      "feature2Desc": "All tools are free and require no registration. Your data is processed in your browser and never sent to any server. Your privacy matters to us.",
+      "feature3Title": "Detailed Breakdown",
+      "feature3Desc": "We show every calculation step, not just the result. SSI deduction, income tax, stamp tax — each item is listed separately."
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "q1": "Is ToolsFlow free?",
+      "a1": "Yes, all our tools are completely free. No registration or membership required.",
+      "q2": "Are calculations up to date?",
+      "a2": "Yes, calculations use 2026 tax brackets, SSI premium ceilings and minimum wage amounts.",
+      "q3": "Is my data safe?",
+      "a3": "All calculations happen in your browser. No data is sent to or stored on any server.",
+      "q4": "What tools are available?",
+      "a4": "Salary calculator, loan calculator, VAT calculator, severance pay calculator, investment calculator, currency converter, BMI calculator, QR code generator and image compressor."
     }
   },
   "tools": {

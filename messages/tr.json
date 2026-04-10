@@ -24,9 +24,30 @@
       "viewAll": "Tüm Araçları Gör"
     },
     "guidesSection": {
-      "title": "AI Rehberleri",
-      "subtitle": "Yapay zeka dünyasındaki en son gelişmeler ve karşılaştırmalar",
-      "viewAll": "Tüm Rehberleri Gör"
+      "title": "Blog Yazıları",
+      "subtitle": "Finans, vergi ve hesaplama rehberleri",
+      "viewAll": "Tüm Yazıları Gör"
+    },
+    "whySection": {
+      "title": "Neden ToolsFlow?",
+      "intro": "ToolsFlow, Türkiye'ye özel finansal hesaplama araçları sunan ücretsiz bir platformdur. Maaş hesaplama, kredi hesaplama, KDV hesaplama, kıdem tazminatı ve yatırım getirisi gibi günlük hayatta en çok ihtiyaç duyulan hesaplamaları saniyeler içinde yapabilirsiniz.",
+      "feature1Title": "Güncel Vergi Dilimleri",
+      "feature1Desc": "2026 yılı gelir vergisi dilimleri, SGK prim tavanları ve asgari ücret tutarları ile güncel hesaplama. Her yeni dönemde veriler otomatik güncellenir.",
+      "feature2Title": "Tamamen Ücretsiz",
+      "feature2Desc": "Tüm araçlarımız ücretsizdir ve kayıt gerektirmez. Verileriniz tarayıcınızda işlenir, sunucuya gönderilmez. Gizliliğiniz bizim için önemlidir.",
+      "feature3Title": "Detaylı Hesaplama",
+      "feature3Desc": "Sadece sonuç değil, tüm hesaplama adımlarını gösteriyoruz. SGK kesintisi, gelir vergisi, damga vergisi — her kalem ayrı ayrı listelenir."
+    },
+    "faqSection": {
+      "title": "Sık Sorulan Sorular",
+      "q1": "ToolsFlow ücretsiz mi?",
+      "a1": "Evet, tüm araçlarımız tamamen ücretsizdir. Kayıt veya üyelik gerektirmez.",
+      "q2": "Hesaplamalar güncel mi?",
+      "a2": "Evet, 2026 yılı vergi dilimleri, SGK prim tavanları ve asgari ücret tutarları ile güncel hesaplama yapılmaktadır.",
+      "q3": "Verilerim güvende mi?",
+      "a3": "Tüm hesaplamalar tarayıcınızda gerçekleşir. Hiçbir veri sunucuya gönderilmez veya kaydedilmez.",
+      "q4": "Hangi araçlar mevcut?",
+      "a4": "Maaş hesaplayıcı, kredi hesaplayıcı, KDV hesaplayıcı, kıdem tazminatı hesaplayıcı, yatırım getiri hesaplayıcı, döviz çevirici, VKİ hesaplayıcı, QR kod oluşturucu ve resim sıkıştırma araçları mevcuttur."
     }
   },
   "tools": {

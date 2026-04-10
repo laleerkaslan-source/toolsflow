@@ -2,17 +2,36 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ToolCard } from "@/components/tools/tool-card";
 import { AdUnit } from "@/components/ads/ad-unit";
-import { WebsiteJsonLd } from "@/components/seo/json-ld";
+import { WebsiteJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { TOOLS } from "@/lib/constants";
-import { ArrowRight, Zap, Shield, Globe } from "lucide-react";
+import { BLOG_POSTS } from "./blog/page";
+import {
+  ArrowRight,
+  Zap,
+  Shield,
+  Globe,
+  CalendarCheck,
+  Lock,
+  ListChecks,
+  Calendar,
+} from "lucide-react";
 
 export default function HomePage() {
   const t = useTranslations();
   const locale = useLocale();
+  const isTr = locale === "tr";
+
+  const faqItems = [
+    { q: t("home.faqSection.q1"), a: t("home.faqSection.a1") },
+    { q: t("home.faqSection.q2"), a: t("home.faqSection.a2") },
+    { q: t("home.faqSection.q3"), a: t("home.faqSection.a3") },
+    { q: t("home.faqSection.q4"), a: t("home.faqSection.a4") },
+  ];
 
   return (
     <>
       <WebsiteJsonLd locale={locale} />
+      <FaqJsonLd items={faqItems} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -109,10 +128,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AI Guides Teaser */}
+      {/* Why ToolsFlow Section — SEO rich text */}
       <section className="bg-muted/30">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <div className="mb-10">
+          <h2 className="text-2xl font-bold sm:text-3xl">
+            {t("home.whySection.title")}
+          </h2>
+          <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
+            {t("home.whySection.intro")}
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {[
+              {
+                icon: CalendarCheck,
+                title: t("home.whySection.feature1Title"),
+                desc: t("home.whySection.feature1Desc"),
+              },
+              {
+                icon: Lock,
+                title: t("home.whySection.feature2Title"),
+                desc: t("home.whySection.feature2Desc"),
+              },
+              {
+                icon: ListChecks,
+                title: t("home.whySection.feature3Title"),
+                desc: t("home.whySection.feature3Desc"),
+              },
+            ].map((f, i) => (
+              <div key={i} className="rounded-xl border border-border bg-card p-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <f.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{f.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {f.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <AdUnit slot="homepage-mid" format="horizontal" className="my-4" />
+      </div>
+
+      {/* Blog Posts Section */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="mb-10 flex items-end justify-between">
+          <div>
             <h2 className="text-2xl font-bold sm:text-3xl">
               {t("home.guidesSection.title")}
             </h2>
@@ -120,11 +185,63 @@ export default function HomePage() {
               {t("home.guidesSection.subtitle")}
             </p>
           </div>
+          <Link
+            href="/blog"
+            className="hidden items-center gap-1 text-sm font-medium text-primary hover:underline sm:flex"
+          >
+            {t("home.guidesSection.viewAll")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-          <div className="rounded-xl border border-border bg-card p-8 text-center">
-            <p className="text-muted-foreground">
-              {t("common.loading")} — Coming Soon
-            </p>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {BLOG_POSTS.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}` as "/"}
+              className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+            >
+              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                {isTr ? post.category.tr : post.category.en}
+              </span>
+              <h3 className="mt-3 text-lg font-semibold group-hover:text-primary transition-colors">
+                {isTr ? post.title.tr : post.title.en}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                {isTr ? post.description.tr : post.description.en}
+              </p>
+              <span className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Calendar className="h-3.5 w-3.5" />
+                {new Date(post.date).toLocaleDateString(
+                  isTr ? "tr-TR" : "en-US",
+                  { year: "numeric", month: "short", day: "numeric" }
+                )}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Section — SEO rich text */}
+      <section className="bg-muted/30">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="text-2xl font-bold sm:text-3xl">
+            {t("home.faqSection.title")}
+          </h2>
+          <div className="mt-8 space-y-4 max-w-3xl">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="group rounded-lg border border-border bg-card"
+              >
+                <summary className="cursor-pointer px-5 py-4 text-sm font-medium hover:bg-accent/50 transition-colors">
+                  {item.q}
+                </summary>
+                <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed">
+                  {item.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
