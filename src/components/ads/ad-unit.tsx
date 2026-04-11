@@ -1,43 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ADSENSE_CLIENT_ID } from "@/lib/constants";
-
 interface AdUnitProps {
-  slot: string;
+  slot?: string;
   format?: "auto" | "rectangle" | "horizontal" | "vertical";
   responsive?: boolean;
   className?: string;
 }
 
 export function AdUnit({
-  slot,
   format = "auto",
-  responsive = true,
   className,
 }: AdUnitProps) {
-  const adRef = useRef<HTMLModElement>(null);
-  const initialized = useRef(false);
-
-  useEffect(() => {
-    if (
-      process.env.NODE_ENV !== "production" ||
-      initialized.current ||
-      !adRef.current
-    ) {
-      return;
-    }
-    try {
-      ((window as unknown as Record<string, unknown[]>).adsbygoogle =
-        (window as unknown as Record<string, unknown[]>).adsbygoogle || []).push(
-        {}
-      );
-      initialized.current = true;
-    } catch {
-      // AdSense not loaded
-    }
-  }, []);
-
+  // Auto Ads is enabled in AdSense dashboard.
+  // Google automatically places ads on the page.
+  // This component renders an empty spacer in development only.
   if (process.env.NODE_ENV !== "production") {
     return (
       <div
@@ -48,15 +24,6 @@ export function AdUnit({
     );
   }
 
-  return (
-    <ins
-      ref={adRef}
-      className={`adsbygoogle ${className ?? ""}`}
-      style={{ display: "block" }}
-      data-ad-client={ADSENSE_CLIENT_ID}
-      data-ad-slot={slot}
-      data-ad-format={format}
-      data-full-width-responsive={responsive}
-    />
-  );
+  // In production, render nothing — Auto Ads handles placement
+  return null;
 }
