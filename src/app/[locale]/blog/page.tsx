@@ -44,6 +44,71 @@ export const BLOG_POSTS = [
     },
     category: { tr: "Finans", en: "Finance" },
   },
+  {
+    slug: "asgari-ucret-2026",
+    date: "2026-04-12",
+    title: {
+      tr: "2026 Asgari Ucret — Brut, Net ve Isveren Maliyeti",
+      en: "2026 Minimum Wage in Turkey — Gross, Net & Employer Cost",
+    },
+    description: {
+      tr: "2026 asgari ucret brut 22.104,67 TL, net 17.002 TL. SGK kesintileri, vergi istisnasi ve isveren maliyeti detaylari.",
+      en: "2026 minimum wage: 22,104.67 TL gross, 17,002 TL net. SSI deductions, tax exemption and full employer cost breakdown.",
+    },
+    category: { tr: "Finans", en: "Finance" },
+  },
+  {
+    slug: "ihbar-tazminati-hesaplama-2026",
+    date: "2026-04-12",
+    title: {
+      tr: "Ihbar Tazminati Hesaplama Rehberi 2026",
+      en: "Notice Pay Calculation Guide 2026 (Turkey)",
+    },
+    description: {
+      tr: "4857 sayili Is Kanunu'na gore ihbar sureleri, hak kazanma sartlari ve hesaplama ornekleri.",
+      en: "Notice periods, eligibility and calculation examples under Turkish Labor Law No. 4857.",
+    },
+    category: { tr: "Is Hukuku", en: "Labor Law" },
+  },
+  {
+    slug: "bilesik-faiz-hesaplama",
+    date: "2026-04-12",
+    title: {
+      tr: "Bilesik Faiz Nedir, Nasil Hesaplanir?",
+      en: "Compound Interest — What It Is and How to Calculate",
+    },
+    description: {
+      tr: "Bilesik faiz kavrami, formulu, basit faizden farki ve yatirimda gercek etkisi.",
+      en: "Compound interest concept, formula, difference from simple interest and its real impact on investing.",
+    },
+    category: { tr: "Yatirim", en: "Investment" },
+  },
+  {
+    slug: "gelir-vergisi-dilimleri-2026",
+    date: "2026-04-12",
+    title: {
+      tr: "2026 Gelir Vergisi Dilimleri ve Oranlari",
+      en: "2026 Turkish Income Tax Brackets & Rates",
+    },
+    description: {
+      tr: "2026 yili icin guncel gelir vergisi dilimleri, kumulatif hesaplama ve ornek senaryolar.",
+      en: "Current 2026 income tax brackets, cumulative calculation method and example scenarios.",
+    },
+    category: { tr: "Vergi", en: "Tax" },
+  },
+  {
+    slug: "konut-kredisi-ihtiyac-kredisi",
+    date: "2026-04-12",
+    title: {
+      tr: "Konut Kredisi vs Ihtiyac Kredisi Karsilastirmasi",
+      en: "Mortgage vs Personal Loan in Turkey — Full Comparison",
+    },
+    description: {
+      tr: "Iki kredi turunun faiz, vade, maliyet ve kullanim farklari ile hangisini ne zaman tercih etmelisiniz.",
+      en: "Rate, maturity, cost and usage differences between the two loan types and when to choose which.",
+    },
+    category: { tr: "Kredi", en: "Loan" },
+  },
 ];
 
 export async function generateMetadata({

@@ -67,6 +67,26 @@ export const routing = defineRouting({
       tr: "/blog/kidem-tazminati-hesaplama-2026",
       en: "/blog/kidem-tazminati-hesaplama-2026",
     },
+    "/blog/asgari-ucret-2026": {
+      tr: "/blog/asgari-ucret-2026",
+      en: "/blog/asgari-ucret-2026",
+    },
+    "/blog/ihbar-tazminati-hesaplama-2026": {
+      tr: "/blog/ihbar-tazminati-hesaplama-2026",
+      en: "/blog/ihbar-tazminati-hesaplama-2026",
+    },
+    "/blog/bilesik-faiz-hesaplama": {
+      tr: "/blog/bilesik-faiz-hesaplama",
+      en: "/blog/bilesik-faiz-hesaplama",
+    },
+    "/blog/gelir-vergisi-dilimleri-2026": {
+      tr: "/blog/gelir-vergisi-dilimleri-2026",
+      en: "/blog/gelir-vergisi-dilimleri-2026",
+    },
+    "/blog/konut-kredisi-ihtiyac-kredisi": {
+      tr: "/blog/konut-kredisi-ihtiyac-kredisi",
+      en: "/blog/konut-kredisi-ihtiyac-kredisi",
+    },
     // Guides
     "/ai-guide": {
       tr: "/ai-rehber",

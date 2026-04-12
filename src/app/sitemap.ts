@@ -66,6 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "brut-net-maas-hesaplama-2026",
     "kdv-oranlari-2026",
     "kidem-tazminati-hesaplama-2026",
+    "asgari-ucret-2026",
+    "ihbar-tazminati-hesaplama-2026",
+    "bilesik-faiz-hesaplama",
+    "gelir-vergisi-dilimleri-2026",
+    "konut-kredisi-ihtiyac-kredisi",
   ];
 
   // Blog listing page
