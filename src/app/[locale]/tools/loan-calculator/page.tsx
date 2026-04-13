@@ -70,8 +70,92 @@ export default async function LoanCalculatorPage({
         },
       ];
 
+  const guide = isTr ? (
+    <>
+      <h2>Kredi Taksidi Nasıl Hesaplanır?</h2>
+      <p>
+        Kredi taksidi, <strong>anüite (eşit taksitli)</strong> yöntemi ile hesaplanır:
+        her ay aynı tutar ödersiniz, ancak bu tutarın anapara ve faiz oranı değişir.
+        İlk aylarda faiz payı yüksek, son aylarda anapara payı yüksektir.
+      </p>
+      <p>
+        Formül: <code>Taksit = P × [r(1+r)^n] / [(1+r)^n - 1]</code> — P: kredi tutarı,
+        r: aylık faiz, n: vade (ay). Tüketici kredilerinde faize
+        <strong> KKDF (%15) + BSMV (%10)</strong> eklenir.
+      </p>
+
+      <h2>Konut Kredisi mi İhtiyaç Kredisi mi?</h2>
+      <p>
+        Konut kredilerinde <strong>KKDF ve BSMV yoktur</strong>, vadeler 120-240 aya
+        kadar uzar, faizler daha düşüktür. İhtiyaç kredisi ise daha yüksek faizli
+        ama teminatsız ve hızlıdır. Büyük tutar ve uzun vade için konut kredisi
+        tercih edilmelidir.
+      </p>
+
+      <h2>Aracı Nasıl Kullanırsınız?</h2>
+      <ol>
+        <li>Kredi tutarı, vade (ay) ve aylık faiz oranını girin</li>
+        <li>Kredi türünü seçin (ihtiyaç/konut) — vergi hesaplaması değişir</li>
+        <li>Aylık taksit, toplam ödeme ve amortisman tablosunu görün</li>
+      </ol>
+
+      <h2>Erken Kapama Avantajı</h2>
+      <p>
+        Kredinizi erken kapatırsanız henüz tahakkuk etmemiş faizleri ödemezsiniz.
+        Bankalar genellikle kalan anapara üzerinden %1-2 erken kapama komisyonu
+        alır ancak toplam tasarruf çoğu zaman komisyondan yüksektir.
+      </p>
+
+      <h2>İlgili Rehberler</h2>
+      <ul>
+        <li><a href="/blog/konut-kredisi-ihtiyac-kredisi">Konut Kredisi vs İhtiyaç Kredisi</a></li>
+        <li><a href="/blog/bilesik-faiz-hesaplama">Bileşik Faiz Nedir?</a></li>
+      </ul>
+    </>
+  ) : (
+    <>
+      <h2>How Loan Payments Are Calculated</h2>
+      <p>
+        Loan payments use the <strong>annuity (equal installments)</strong> method:
+        each month you pay the same amount, but the principal/interest split shifts
+        — interest-heavy early, principal-heavy later.
+      </p>
+      <p>
+        Formula: <code>Payment = P × [r(1+r)^n] / [(1+r)^n - 1]</code>. Turkish consumer
+        loans add <strong>KKDF (15%) + BSMV (10%)</strong> on top of interest.
+      </p>
+
+      <h2>Mortgage vs Personal Loan</h2>
+      <p>
+        Mortgages are exempt from KKDF and BSMV, offer 120-240 month terms and lower
+        rates. Personal loans are faster and unsecured but costlier. For large
+        amounts and long terms, prefer a mortgage.
+      </p>
+
+      <h2>How to Use This Tool</h2>
+      <ol>
+        <li>Enter loan amount, term (months) and monthly rate</li>
+        <li>Select loan type (personal/mortgage) — tax calculation differs</li>
+        <li>Review monthly payment, total cost and full amortization schedule</li>
+      </ol>
+
+      <h2>Early Repayment</h2>
+      <p>
+        Paying off early eliminates unaccrued interest. Banks typically charge a
+        1-2% prepayment fee on the remaining balance — but the interest savings
+        usually outweigh the fee.
+      </p>
+
+      <h2>Related Guides</h2>
+      <ul>
+        <li><a href="/en/blog/konut-kredisi-ihtiyac-kredisi">Mortgage vs Personal Loan</a></li>
+        <li><a href="/en/blog/bilesik-faiz-hesaplama">Compound Interest Explained</a></li>
+      </ul>
+    </>
+  );
+
   return (
-    <ToolLayout toolId="loan-calculator" locale={locale} faq={faq}>
+    <ToolLayout toolId="loan-calculator" locale={locale} faq={faq} guide={guide}>
       <LoanCalculator />
     </ToolLayout>
   );

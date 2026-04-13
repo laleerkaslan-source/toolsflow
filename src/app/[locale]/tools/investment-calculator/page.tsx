@@ -70,8 +70,100 @@ export default async function InvestmentCalculatorPage({
         },
       ];
 
+  const guide = isTr ? (
+    <>
+      <h2>Yatırım Getirisi Nasıl Hesaplanır?</h2>
+      <p>
+        Bileşik faiz formülü: <code>A = P × (1 + r/n)^(n×t) + PMT × [((1 + r/n)^(n×t) - 1) / (r/n)]</code>
+        <br />
+        A: vade sonu, P: başlangıç, r: yıllık getiri, n: yıllık bileşik sayısı,
+        t: yıl, PMT: düzenli katkı.
+      </p>
+
+      <h2>72 Kuralı ile Hızlı Tahmin</h2>
+      <p>
+        Paranızın kaç yılda ikiye katlanacağı: <strong>72 / Yıllık Getiri (%)</strong>.
+        %30 getiri → 72/30 ≈ 2,4 yılda katlanır.
+      </p>
+
+      <h2>Enflasyon Düzeltmesi Neden Önemli?</h2>
+      <p>
+        Nominal getiri her zaman yanıltıcıdır. Yılda %40 getiri, %50 enflasyonla
+        birlikte <strong>reel olarak</strong> -%7 kayıptır. Araç, tahmini enflasyon
+        oranına göre bugünkü alım gücünü otomatik hesaplar.
+      </p>
+
+      <h2>Aracı Nasıl Kullanırsınız?</h2>
+      <ol>
+        <li>Başlangıç sermayeni gir</li>
+        <li>Aylık düzenli katkı miktarını gir (isteğe bağlı)</li>
+        <li>Yıllık getiri ve yatırım süresini seç</li>
+        <li>Enflasyon oranı gir — reel getiriyi de görürsün</li>
+        <li>Düşük/orta/yüksek senaryolarla karşılaştır</li>
+      </ol>
+
+      <h2>Yatırım Araçları ve Tipik Getiri</h2>
+      <ul>
+        <li><strong>TL Mevduat:</strong> %30-45 brüt (stopaj sonrası düşer)</li>
+        <li><strong>Altın:</strong> Yıllık değişken, enflasyona karşı koruma</li>
+        <li><strong>Dolar/Euro:</strong> Kur artışı kadar + faiz</li>
+        <li><strong>Hisse Senedi (BIST):</strong> Uzun vadede %35-60 ortalama</li>
+        <li><strong>Yatırım Fonu:</strong> Fon türüne göre %20-80</li>
+      </ul>
+
+      <h2>İlgili Rehber</h2>
+      <ul>
+        <li><a href="/blog/bilesik-faiz-hesaplama">Bileşik Faiz Nedir, Nasıl Hesaplanır?</a></li>
+      </ul>
+    </>
+  ) : (
+    <>
+      <h2>How Investment Returns Are Calculated</h2>
+      <p>
+        Compound interest with contributions:
+        <code> A = P × (1 + r/n)^(n×t) + PMT × [((1 + r/n)^(n×t) - 1) / (r/n)]</code>
+      </p>
+
+      <h2>Rule of 72</h2>
+      <p>
+        Quick doubling estimate: <strong>72 / Annual Return (%)</strong>. At 30%
+        annual return, money doubles in ~2.4 years.
+      </p>
+
+      <h2>Why Inflation Adjustment Matters</h2>
+      <p>
+        Nominal returns mislead. A 40% return with 50% inflation is a <strong>real</strong>
+        loss of -7%. The tool adjusts for your inflation estimate to show true
+        purchasing power.
+      </p>
+
+      <h2>How to Use This Tool</h2>
+      <ol>
+        <li>Enter starting capital</li>
+        <li>Enter monthly contribution (optional)</li>
+        <li>Set annual return and duration</li>
+        <li>Add inflation rate — see real returns</li>
+        <li>Compare low/medium/high scenarios</li>
+      </ol>
+
+      <h2>Typical Returns by Asset</h2>
+      <ul>
+        <li><strong>TL Deposits:</strong> 30-45% gross (lower after withholding tax)</li>
+        <li><strong>Gold:</strong> Variable, inflation hedge</li>
+        <li><strong>USD/EUR:</strong> Currency appreciation + interest</li>
+        <li><strong>Stocks (BIST):</strong> 35-60% long-term average</li>
+        <li><strong>Mutual Funds:</strong> 20-80% by fund type</li>
+      </ul>
+
+      <h2>Related Guide</h2>
+      <ul>
+        <li><a href="/en/blog/bilesik-faiz-hesaplama">Compound Interest Explained</a></li>
+      </ul>
+    </>
+  );
+
   return (
-    <ToolLayout toolId="investment-calculator" locale={locale} faq={faq}>
+    <ToolLayout toolId="investment-calculator" locale={locale} faq={faq} guide={guide}>
       <InvestmentCalculator />
     </ToolLayout>
   );

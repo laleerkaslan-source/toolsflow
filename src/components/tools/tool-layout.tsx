@@ -8,9 +8,10 @@ interface ToolLayoutProps {
   locale: string;
   children: React.ReactNode;
   faq?: { q: string; a: string }[];
+  guide?: React.ReactNode;
 }
 
-export function ToolLayout({ toolId, locale, children, faq }: ToolLayoutProps) {
+export function ToolLayout({ toolId, locale, children, faq, guide }: ToolLayoutProps) {
   const t = useTranslations();
   const toolName = t(`tools.${toolId}.name`);
   const toolDesc = t(`tools.${toolId}.description`);
@@ -44,6 +45,12 @@ export function ToolLayout({ toolId, locale, children, faq }: ToolLayoutProps) {
             <div className="mt-8">{children}</div>
 
             <AdUnit slot={`${toolId}-mid`} format="horizontal" className="my-8" />
+
+            {guide && (
+              <section className="mt-12 prose prose-slate dark:prose-invert max-w-none prose-headings:scroll-mt-20">
+                {guide}
+              </section>
+            )}
 
             {/* FAQ Section */}
             {faq && faq.length > 0 && (

@@ -78,8 +78,93 @@ export default async function SalaryCalculatorPage({
         },
       ];
 
+  const guide = isTr ? (
+    <>
+      <h2>Brüt Net Maaş Hesaplama Nasıl Yapılır?</h2>
+      <p>
+        Türkiye&apos;de brüt maaştan net maaşa ulaşmak için 4 temel kesinti uygulanır:
+        <strong> SGK işçi payı (%14)</strong>, <strong>işsizlik sigortası (%1)</strong>,
+        <strong> gelir vergisi (%15 - %40)</strong> ve <strong>damga vergisi (%0,759)</strong>.
+        Asgari ücret tutarı kadar olan gelir kısmı gelir vergisi ve damga vergisinden
+        muaftır.
+      </p>
+
+      <h2>2026 Gelir Vergisi Dilimleri</h2>
+      <ul>
+        <li>0 - 158.000 TL: %15</li>
+        <li>158.000 - 330.000 TL: %20</li>
+        <li>330.000 - 800.000 TL: %27</li>
+        <li>800.000 - 4.300.000 TL: %35</li>
+        <li>4.300.000 TL üzeri: %40</li>
+      </ul>
+
+      <h2>Aracı Nasıl Kullanırsınız?</h2>
+      <ol>
+        <li>Brüt aylık maaşınızı girin</li>
+        <li>Çalıştığınız ayı seçin (kümülatif vergi için önemli)</li>
+        <li>AGİ ve ek kesintiler varsa belirtin</li>
+        <li>Net maaş, kesintiler ve işveren maliyetini anında görün</li>
+      </ol>
+
+      <h2>Kümülatif Vergi Etkisi</h2>
+      <p>
+        Yılın başında %15 diliminde olan bir çalışan, brüt maaşı yüksekse yıl
+        ortasında %20 veya %27 dilimine geçebilir. Bu nedenle Kasım-Aralık aylarında
+        net maaş düşebilir. Araç her ay için ayrı hesaplama yapar.
+      </p>
+
+      <h2>İlgili Rehberler</h2>
+      <ul>
+        <li><a href="/blog/brut-net-maas-hesaplama-2026">Brüt Net Maaş Hesaplama Rehberi</a></li>
+        <li><a href="/blog/gelir-vergisi-dilimleri-2026">2026 Gelir Vergisi Dilimleri</a></li>
+        <li><a href="/blog/asgari-ucret-2026">2026 Asgari Ücret</a></li>
+      </ul>
+    </>
+  ) : (
+    <>
+      <h2>How Gross-to-Net Salary Calculation Works</h2>
+      <p>
+        In Turkey, four main deductions reduce gross to net salary:
+        <strong> SSI employee premium (14%)</strong>, <strong>unemployment insurance (1%)</strong>,
+        <strong> income tax (15% - 40%)</strong>, and <strong>stamp tax (0.759%)</strong>.
+        Income up to the minimum wage is exempt from income and stamp tax.
+      </p>
+
+      <h2>2026 Income Tax Brackets</h2>
+      <ul>
+        <li>0 - 158,000 TL: 15%</li>
+        <li>158,000 - 330,000 TL: 20%</li>
+        <li>330,000 - 800,000 TL: 27%</li>
+        <li>800,000 - 4,300,000 TL: 35%</li>
+        <li>Over 4,300,000 TL: 40%</li>
+      </ul>
+
+      <h2>How to Use This Tool</h2>
+      <ol>
+        <li>Enter your gross monthly salary</li>
+        <li>Select the working month (matters for cumulative tax)</li>
+        <li>Add any additional deductions if applicable</li>
+        <li>Instantly see net salary, deductions, and employer cost</li>
+      </ol>
+
+      <h2>Cumulative Tax Effect</h2>
+      <p>
+        An employee starting the year at the 15% bracket may move to 20% or 27%
+        mid-year as cumulative income grows. Net pay therefore tends to decrease
+        toward year-end. This tool calculates each month separately.
+      </p>
+
+      <h2>Related Guides</h2>
+      <ul>
+        <li><a href="/en/blog/brut-net-maas-hesaplama-2026">Gross to Net Salary Guide</a></li>
+        <li><a href="/en/blog/gelir-vergisi-dilimleri-2026">2026 Income Tax Brackets</a></li>
+        <li><a href="/en/blog/asgari-ucret-2026">2026 Minimum Wage</a></li>
+      </ul>
+    </>
+  );
+
   return (
-    <ToolLayout toolId="salary-calculator" locale={locale} faq={faq}>
+    <ToolLayout toolId="salary-calculator" locale={locale} faq={faq} guide={guide}>
       <SalaryCalculator />
     </ToolLayout>
   );

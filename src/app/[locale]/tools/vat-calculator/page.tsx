@@ -70,8 +70,81 @@ export default async function VatCalculatorPage({
         },
       ];
 
+  const guide = isTr ? (
+    <>
+      <h2>KDV Hesaplama Formülleri</h2>
+      <p>
+        <strong>KDV Ekle:</strong> Net Tutar × (1 + KDV Oranı) = KDV Dahil Tutar
+        <br />
+        <strong>KDV Çıkar:</strong> KDV Dahil Tutar / (1 + KDV Oranı) = Net Tutar
+      </p>
+
+      <h2>2026 KDV Oranları</h2>
+      <ul>
+        <li><strong>%1:</strong> Temel gıda (ekmek, süt, et, sebze, meyve, bakliyat), gazete, kitap</li>
+        <li><strong>%10:</strong> Giyim, ayakkabı, tekstil, bazı hizmetler</li>
+        <li><strong>%20:</strong> Standart oran — elektronik, otomobil, çoğu mal ve hizmet</li>
+      </ul>
+
+      <h2>Aracı Nasıl Kullanırsınız?</h2>
+      <ol>
+        <li>Tutarı girin (KDV dahil veya hariç)</li>
+        <li>KDV oranını seçin (%1, %10 veya %20)</li>
+        <li>Mod seçin: KDV ekle / KDV çıkar</li>
+        <li>Toplu hesaplama için birden fazla tutar girebilirsiniz</li>
+      </ol>
+
+      <h2>Fatura Düzenlerken KDV</h2>
+      <p>
+        Mal/hizmet satışı yapan işletmeler faturaya KDV eklemek zorundadır.
+        Alıcı KDV mükellefi ise ödediği KDV&apos;yi <strong>indirim hakkı</strong>
+        olarak kullanabilir — sadece net aradaki fark hazineye ödenir.
+      </p>
+
+      <h2>İlgili Rehber</h2>
+      <ul>
+        <li><a href="/blog/kdv-oranlari-2026">KDV Oranları 2026 — Tam Liste</a></li>
+      </ul>
+    </>
+  ) : (
+    <>
+      <h2>VAT Calculation Formulas</h2>
+      <p>
+        <strong>Add VAT:</strong> Net × (1 + Rate) = VAT-Inclusive
+        <br />
+        <strong>Remove VAT:</strong> Inclusive / (1 + Rate) = Net
+      </p>
+
+      <h2>2026 Turkish VAT Rates</h2>
+      <ul>
+        <li><strong>1%:</strong> Basic food (bread, milk, meat, vegetables, fruit), newspapers, books</li>
+        <li><strong>10%:</strong> Clothing, footwear, textiles, some services</li>
+        <li><strong>20%:</strong> Standard rate — electronics, cars, most goods and services</li>
+      </ul>
+
+      <h2>How to Use This Tool</h2>
+      <ol>
+        <li>Enter the amount (inclusive or exclusive)</li>
+        <li>Select VAT rate (1%, 10% or 20%)</li>
+        <li>Choose mode: add VAT / remove VAT</li>
+        <li>Use batch mode for multiple amounts</li>
+      </ol>
+
+      <h2>VAT on Invoices</h2>
+      <p>
+        Sellers must add VAT to invoices. VAT-registered buyers can <strong>deduct</strong>
+        the VAT they pay as input tax — only the net difference goes to the treasury.
+      </p>
+
+      <h2>Related Guide</h2>
+      <ul>
+        <li><a href="/en/blog/kdv-oranlari-2026">Turkey VAT Rates 2026 — Complete List</a></li>
+      </ul>
+    </>
+  );
+
   return (
-    <ToolLayout toolId="vat-calculator" locale={locale} faq={faq}>
+    <ToolLayout toolId="vat-calculator" locale={locale} faq={faq} guide={guide}>
       <VatCalculator />
     </ToolLayout>
   );
