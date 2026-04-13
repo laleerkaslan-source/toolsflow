@@ -6,6 +6,7 @@ import {
 } from "@/components/seo/json-ld";
 import { SITE_URL } from "@/lib/constants";
 import { Link } from "@/i18n/navigation";
+import { BLOG_POSTS } from "@/app/[locale]/blog/page";
 
 interface BlogLayoutProps {
   slug: string;
@@ -30,6 +31,7 @@ export function BlogLayout({
 }: BlogLayoutProps) {
   const isTr = locale === "tr";
   const url = `${SITE_URL}${isTr ? `/blog/${slug}` : `/en/blog/${slug}`}`;
+  const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
     <>
@@ -100,6 +102,31 @@ export function BlogLayout({
               format="horizontal"
               className="my-8"
             />
+
+            {/* Related Posts */}
+            {relatedPosts.length > 0 && (
+              <section className="mt-12">
+                <h2 className="mb-6 text-2xl font-bold">
+                  {isTr ? "Ilgili Yazilar" : "Related Posts"}
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {relatedPosts.map((p) => (
+                    <Link
+                      key={p.slug}
+                      href={`/blog/${p.slug}` as "/"}
+                      className="group rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/30 hover:shadow-md"
+                    >
+                      <span className="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                        {isTr ? p.category.tr : p.category.en}
+                      </span>
+                      <h3 className="mt-2 text-sm font-semibold group-hover:text-primary transition-colors line-clamp-2">
+                        {isTr ? p.title.tr : p.title.en}
+                      </h3>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* FAQ Section */}
             {faq && faq.length > 0 && (

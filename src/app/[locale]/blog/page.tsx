@@ -192,6 +192,36 @@ export default async function BlogPage({
             </Link>
           ))}
         </div>
+
+        <section className="mt-16 rounded-xl border border-primary/20 bg-primary/5 p-8">
+          <h2 className="text-xl font-bold sm:text-2xl">
+            {isTr ? "Ucretsiz Hesaplama Araclari" : "Free Calculation Tools"}
+          </h2>
+          <p className="mt-2 text-muted-foreground">
+            {isTr
+              ? "Rehberlerimizde anlatilan hesaplamalari saniyeler icinde yapabilirsiniz."
+              : "Run the calculations from our guides in seconds."}
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { href: "/tools/salary-calculator", tr: "Maas Hesaplayici", en: "Salary Calculator" },
+              { href: "/tools/loan-calculator", tr: "Kredi Hesaplayici", en: "Loan Calculator" },
+              { href: "/tools/severance-calculator", tr: "Kidem Tazminati Hesaplayici", en: "Severance Calculator" },
+              { href: "/tools/vat-calculator", tr: "KDV Hesaplayici", en: "VAT Calculator" },
+              { href: "/tools/investment-calculator", tr: "Yatirim Hesaplayici", en: "Investment Calculator" },
+              { href: "/tools/currency-converter", tr: "Doviz Cevirici", en: "Currency Converter" },
+            ].map((t) => (
+              <Link
+                key={t.href}
+                href={t.href as "/"}
+                className="flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium hover:border-primary/40 hover:text-primary transition-colors"
+              >
+                {isTr ? t.tr : t.en}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );
