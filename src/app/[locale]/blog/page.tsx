@@ -109,6 +109,71 @@ export const BLOG_POSTS = [
     },
     category: { tr: "Kredi", en: "Loan" },
   },
+  {
+    slug: "sgk-primi-2026",
+    date: "2026-04-13",
+    title: {
+      tr: "2026 SGK Primi Oranlari ve Hesaplama",
+      en: "2026 SSI Premium Rates in Turkey",
+    },
+    description: {
+      tr: "Isci, isveren SGK prim oranlari, 2026 taban-tavan tutarlari, issizlik sigortasi ve ornek hesaplamalar.",
+      en: "Employee/employer SSI rates, 2026 floor-ceiling, unemployment insurance and example calculations.",
+    },
+    category: { tr: "SGK", en: "SSI" },
+  },
+  {
+    slug: "yillik-izin-hesaplama",
+    date: "2026-04-13",
+    title: {
+      tr: "Yillik Izin Hesaplama Rehberi",
+      en: "Annual Leave Calculation Guide (Turkey)",
+    },
+    description: {
+      tr: "Yillik izin sureleri, hak kazanma sarti, kullanilmamis izin ucreti ve ornek hesaplamalar.",
+      en: "Annual leave periods, eligibility, unused leave pay and example calculations.",
+    },
+    category: { tr: "Is Hukuku", en: "Labor Law" },
+  },
+  {
+    slug: "fazla-mesai-hesaplama",
+    date: "2026-04-13",
+    title: {
+      tr: "Fazla Mesai Ucreti Nasil Hesaplanir?",
+      en: "How to Calculate Overtime Pay (Turkey)",
+    },
+    description: {
+      tr: "Fazla mesai ve fazla calisma oranlari, yillik sinir, serbest zaman takasi ve ornek hesaplamalar.",
+      en: "Overtime and extra-work rates, annual cap, time-off exchange and examples.",
+    },
+    category: { tr: "Is Hukuku", en: "Labor Law" },
+  },
+  {
+    slug: "emlak-vergisi-2026",
+    date: "2026-04-13",
+    title: {
+      tr: "2026 Emlak Vergisi Rehberi",
+      en: "2026 Property Tax Guide (Turkey)",
+    },
+    description: {
+      tr: "Emlak vergisi oranlari, 2026 rayic bedel degisiklikleri, odeme tarihleri, muafiyetler ve ornek hesaplamalar.",
+      en: "Property tax rates, 2026 valuation changes, payment dates, exemptions and example calculations.",
+    },
+    category: { tr: "Vergi", en: "Tax" },
+  },
+  {
+    slug: "mtv-2026",
+    date: "2026-04-13",
+    title: {
+      tr: "2026 MTV Tarifesi ve Odeme Rehberi",
+      en: "2026 Motor Vehicle Tax Guide (Turkey)",
+    },
+    description: {
+      tr: "Otomobiller, kamyonetler ve elektrikli araclar icin 2026 MTV tutarlari, odeme tarihleri, muafiyetler.",
+      en: "2026 MTV amounts for cars, vans and electric vehicles, payment dates and exemptions.",
+    },
+    category: { tr: "Vergi", en: "Tax" },
+  },
 ];
 
 export async function generateMetadata({

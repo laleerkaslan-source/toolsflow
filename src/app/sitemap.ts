@@ -71,6 +71,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bilesik-faiz-hesaplama",
     "gelir-vergisi-dilimleri-2026",
     "konut-kredisi-ihtiyac-kredisi",
+    "sgk-primi-2026",
+    "yillik-izin-hesaplama",
+    "fazla-mesai-hesaplama",
+    "emlak-vergisi-2026",
+    "mtv-2026",
   ];
 
   // Blog listing page

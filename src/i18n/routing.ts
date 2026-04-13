@@ -87,6 +87,26 @@ export const routing = defineRouting({
       tr: "/blog/konut-kredisi-ihtiyac-kredisi",
       en: "/blog/konut-kredisi-ihtiyac-kredisi",
     },
+    "/blog/sgk-primi-2026": {
+      tr: "/blog/sgk-primi-2026",
+      en: "/blog/sgk-primi-2026",
+    },
+    "/blog/yillik-izin-hesaplama": {
+      tr: "/blog/yillik-izin-hesaplama",
+      en: "/blog/yillik-izin-hesaplama",
+    },
+    "/blog/fazla-mesai-hesaplama": {
+      tr: "/blog/fazla-mesai-hesaplama",
+      en: "/blog/fazla-mesai-hesaplama",
+    },
+    "/blog/emlak-vergisi-2026": {
+      tr: "/blog/emlak-vergisi-2026",
+      en: "/blog/emlak-vergisi-2026",
+    },
+    "/blog/mtv-2026": {
+      tr: "/blog/mtv-2026",
+      en: "/blog/mtv-2026",
+    },
     // Guides
     "/ai-guide": {
       tr: "/ai-rehber",
