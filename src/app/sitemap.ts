@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { en: "/en/about", tr: "/hakkimizda", priority: 0.5 },
     { en: "/en/contact", tr: "/iletisim", priority: 0.5 },
     { en: "/en/privacy", tr: "/gizlilik-politikasi", priority: 0.3 },
+    { en: "/en/terms", tr: "/kullanim-sartlari", priority: 0.3 },
   ];
 
   const entries: MetadataRoute.Sitemap = [];

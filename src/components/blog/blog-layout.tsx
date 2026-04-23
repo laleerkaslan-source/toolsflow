@@ -7,6 +7,8 @@ import {
 import { SITE_URL } from "@/lib/constants";
 import { Link } from "@/i18n/navigation";
 import { BLOG_POSTS } from "@/app/[locale]/blog/page";
+import { Disclaimer } from "@/components/layout/disclaimer";
+import { AuthorBio } from "@/components/blog/author-bio";
 
 interface BlogLayoutProps {
   slug: string;
@@ -75,6 +77,10 @@ export function BlogLayout({
             <div className="prose prose-lg max-w-none dark:prose-invert">
               {children}
             </div>
+
+            <Disclaimer locale={locale} variant="blog" />
+
+            <AuthorBio locale={locale} />
 
             {relatedTool && (
               <div className="mt-10 rounded-xl border border-primary/20 bg-primary/5 p-6">

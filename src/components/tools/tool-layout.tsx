@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { AdUnit } from "@/components/ads/ad-unit";
 import { BreadcrumbJsonLd, ToolJsonLd, FaqJsonLd } from "@/components/seo/json-ld";
 import { SITE_URL } from "@/lib/constants";
+import { Disclaimer } from "@/components/layout/disclaimer";
 
 interface ToolLayoutProps {
   toolId: string;
@@ -43,6 +44,8 @@ export function ToolLayout({ toolId, locale, children, faq, guide }: ToolLayoutP
             </p>
 
             <div className="mt-8">{children}</div>
+
+            <Disclaimer locale={locale} variant="tool" />
 
             <AdUnit slot={`${toolId}-mid`} format="horizontal" className="my-8" />
 

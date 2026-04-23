@@ -100,6 +100,16 @@ export function Footer() {
                   {t("privacy")}
                 </Link>
               </li>
+              <li>
+                <Link href="/terms" className="hover:text-foreground transition-colors">
+                  {isTr ? "Kullanım Şartları" : "Terms of Service"}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-foreground transition-colors">
+                  {isTr ? "Hakkımızda" : "About"}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

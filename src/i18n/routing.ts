@@ -129,6 +129,10 @@ export const routing = defineRouting({
       tr: "/gizlilik-politikasi",
       en: "/privacy",
     },
+    "/terms": {
+      tr: "/kullanim-sartlari",
+      en: "/terms",
+    },
   },
 });
 
