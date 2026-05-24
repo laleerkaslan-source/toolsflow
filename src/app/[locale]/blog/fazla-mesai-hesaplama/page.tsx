@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +26,14 @@ export async function generateMetadata({
         en: "/en/blog/fazla-mesai-hesaplama",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Fazla Mesai Ucreti Hesaplama — %50 ve %25 Zaml Ucret" : "Overtime Pay in Turkey — 50% and 25% Uplift Rules",
+      description: isTr ? "Fazla mesai ve fazla calisma farki, %50 ve %25 zam oranlari, haftalik 45 saat siniri ve hesaplama ornekleri." : "Overtime vs extra work, 50% and 25% uplift rates, 45-hour weekly limit and calculation examples.",
+      url: `${SITE_URL}${isTr ? "/blog/fazla-mesai-hesaplama" : "/en/blog/fazla-mesai-hesaplama"}`,
+      category: "Is Hukuku",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -148,6 +158,66 @@ export default async function FazlaMesaiPage({
             Yonetici konumundaki calisanlar, ust duzey yoneticiler ve gorev
             itibariyle belirli pozisyonlar fazla mesai ucretinden muaf tutulabilir —
             ancak bu durum sozlesmede acikca belirtilmelidir.
+          </p>
+
+          <h2>Vaka: Bir Cagri Merkezi Calisani</h2>
+          <p>
+            Istanbul Atasehir&apos;deki bir bankacilik cagri merkezinde 26.000 TL brut
+            maasla calisan personel, yogun donemde haftada ortalama 8 saat fazla
+            mesai yapiyor. Aylik 4 hafta × 8 saat = <strong>32 saat fazla mesai</strong>.
+          </p>
+          <ul>
+            <li>Saatlik ucret: 26.000 / 225 = <strong>115,55 TL</strong></li>
+            <li>Fazla mesai saatlik: 115,55 × 1,5 = 173,33 TL</li>
+            <li>Aylik fazla mesai ucreti: 173,33 × 32 = <strong>5.546 TL brut</strong></li>
+            <li>Vergi sonrasi net ek: ~<strong>4.000 TL</strong></li>
+          </ul>
+          <p>
+            Yillik 12 ay × 32 saat = 384 saat &mdash; ki bu <strong>yasal 270 saatlik
+            siniri asar</strong>. Personel bu durumu Calisma Bakanligi ALO 170
+            hattina bildirebilir; isveren 270 saat uzeri sure icin ayri sozlesme
+            yapmali. Aksi takdirde isveren 2026 yili icin her isci basina yaklasik
+            8.500 TL idari para cezasi ile karsi karsiya kalir.
+          </p>
+
+          <h2>Yanlis Bilinen Konular</h2>
+          <ul>
+            <li>
+              <strong>&quot;Maasima dahil&quot; cumlesi&apos;</strong> &mdash; Bircok sirket
+              sozlesmeye &quot;fazla mesai maasa dahildir&quot; yazar. Yargitay 9. HD&apos;ye
+              gore bu hukum <strong>yilda 270 saate kadar</strong> gecerli olabilir
+              (eger maas piyasanin uzerindeyse). Uzerinde olan fazla mesai
+              mutlaka ayri odenir.
+            </li>
+            <li>
+              <strong>&quot;Yemek molasi sayilmaz&quot;</strong> &mdash; Dogru. 4857/68. madde
+              gunde 7,5 saatten fazla calisilan durumlarda en az 1 saat yemek
+              molasini zorunlu kilar ve bu sure haftalik 45 saate dahil DEGILDIR.
+            </li>
+            <li>
+              <strong>&quot;Pazar gunu calismak fazla mesaidir&quot;</strong> &mdash; Yari
+              dogru. Pazar = hafta tatili. Hafta tatilinde calisma <strong>%50 zamli
+              + ayrica gunluk ucret tutarinda hafta tatili odemesi</strong> gerektirir.
+              Yani toplam 2,5 katina cikar.
+            </li>
+            <li>
+              <strong>&quot;Onayim olmadan calistirildiimi soyleyebilirim&quot;</strong> &mdash;
+              Genelde dogru. Yazili onay olmadan yapilan fazla mesai isverenin
+              riskidir. Ancak fiilen calisilmissa ucret odenmeli (Yargitay 22.HD
+              2018/3567 karari).
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Fazla mesai duzenlemeleri{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">4857 sayili Is Kanunu&apos;nun 41-42. maddeleri</a>{" "}
+            ile yapilmistir. Detayli yonetmelik icin{" "}
+            <a href="https://www.csgb.gov.tr" target="_blank" rel="noopener noreferrer">Calisma ve Sosyal Guvenlik Bakanligi</a>{" "}
+            &quot;Is Suresine Iliskin Yonetmelik&quot; ve ALO 170 cagri merkezi rehberdir.
+            Ihlal bildirimleri{" "}
+            <a href="https://www.csgb.gov.tr/iletisim/sikayet-ve-talepler/" target="_blank" rel="noopener noreferrer">Calisma Bakanligi sikayet portalindan</a>{" "}
+            yapilabilir.
           </p>
         </>
       ) : (

@@ -21,6 +21,7 @@ export async function generateMetadata({
         en: "/en/tools/image-compressor",
       },
     },
+    robots: { index: false, follow: true },
   };
 }
 

@@ -1,5 +1,7 @@
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { InvestmentCalculator } from "@/components/tools/investment-calculator";
+import { HowToJsonLd } from "@/components/seo/json-ld";
+import { CompoundInterestChart } from "@/components/blog/charts/compound-interest-chart";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -79,6 +81,8 @@ export default async function InvestmentCalculatorPage({
         A: vade sonu, P: başlangıç, r: yıllık getiri, n: yıllık bileşik sayısı,
         t: yıl, PMT: düzenli katkı.
       </p>
+
+      <CompoundInterestChart locale={locale} />
 
       <h2>72 Kuralı ile Hızlı Tahmin</h2>
       <p>
@@ -162,9 +166,36 @@ export default async function InvestmentCalculatorPage({
     </>
   );
 
+  const howToSteps = isTr
+    ? [
+        { name: "Baslangic sermayesi gir", text: "Yatirima baslayacaginiz tutari yazin." },
+        { name: "Aylik katki ekle", text: "Her ay duzenli olarak ekleyeceginiz tutari girin (istege bagli)." },
+        { name: "Yillik getiri ve sure", text: "Beklenen yillik getiri oranini ve yil sayisini secin." },
+        { name: "Enflasyon orani", text: "Reel getiriyi gormek icin enflasyon tahminini yazin." },
+        { name: "Sonucu incele", text: "Vade sonu tutar, toplam kazanc ve enflasyon duzeltmeli reel getiriyi gor." },
+      ]
+    : [
+        { name: "Enter principal", text: "Type your initial investment amount." },
+        { name: "Add monthly contribution", text: "Enter optional regular monthly contribution." },
+        { name: "Set return and term", text: "Choose expected annual return and number of years." },
+        { name: "Add inflation", text: "Enter inflation estimate to see real returns." },
+        { name: "Review results", text: "See final amount, total gain and inflation-adjusted real return." },
+      ];
+
   return (
-    <ToolLayout toolId="investment-calculator" locale={locale} faq={faq} guide={guide}>
-      <InvestmentCalculator />
-    </ToolLayout>
+    <>
+      <HowToJsonLd
+        name={isTr ? "Yatirim Getirisi Nasil Hesaplanir?" : "How to Calculate Investment Returns"}
+        description={
+          isTr
+            ? "Bilesik faiz formulu ve enflasyon duzeltmesi ile yatirim getirisi hesaplama adimlari."
+            : "Calculate investment returns using compound interest and inflation adjustment."
+        }
+        steps={howToSteps}
+      />
+      <ToolLayout toolId="investment-calculator" locale={locale} faq={faq} guide={guide}>
+        <InvestmentCalculator />
+      </ToolLayout>
+    </>
   );
 }

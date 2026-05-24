@@ -68,11 +68,6 @@ export function Footer() {
                   {isTr ? "Kidem Tazminati Hesaplama" : "Severance Pay Guide"}
                 </Link>
               </li>
-              <li>
-                <Link href="/ai-guide" className="hover:text-foreground transition-colors">
-                  {isTr ? "AI Rehber" : "AI Guide"}
-                </Link>
-              </li>
             </ul>
           </div>
 

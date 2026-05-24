@@ -1,5 +1,6 @@
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { VatCalculator } from "@/components/tools/vat-calculator";
+import { HowToJsonLd } from "@/components/seo/json-ld";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -143,9 +144,34 @@ export default async function VatCalculatorPage({
     </>
   );
 
+  const howToSteps = isTr
+    ? [
+        { name: "Tutari gir", text: "KDV dahil veya haric tutari yazin." },
+        { name: "KDV orani sec", text: "%1, %10 veya %20'den birini secin." },
+        { name: "Modu sec", text: "KDV ekle veya KDV cikar modunu belirleyin." },
+        { name: "Sonucu gor", text: "Net tutar, KDV tutari ve toplam degeri aninda gorun." },
+      ]
+    : [
+        { name: "Enter amount", text: "Type the amount (inclusive or exclusive)." },
+        { name: "Select rate", text: "Pick 1%, 10% or 20% VAT rate." },
+        { name: "Select mode", text: "Choose add VAT or remove VAT." },
+        { name: "View result", text: "See net, VAT and total amount instantly." },
+      ];
+
   return (
-    <ToolLayout toolId="vat-calculator" locale={locale} faq={faq} guide={guide}>
-      <VatCalculator />
-    </ToolLayout>
+    <>
+      <HowToJsonLd
+        name={isTr ? "KDV Nasil Hesaplanir?" : "How to Calculate VAT (Turkey)"}
+        description={
+          isTr
+            ? "Turkiye'de %1, %10 ve %20 KDV oranlari ile dahil/haric tutar hesaplama."
+            : "Calculate VAT-inclusive or exclusive amounts with Turkey's 1%, 10%, 20% rates."
+        }
+        steps={howToSteps}
+      />
+      <ToolLayout toolId="vat-calculator" locale={locale} faq={faq} guide={guide}>
+        <VatCalculator />
+      </ToolLayout>
+    </>
   );
 }

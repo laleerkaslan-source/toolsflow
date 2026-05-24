@@ -21,6 +21,7 @@ export async function generateMetadata({
         en: "/en/tools/currency-converter",
       },
     },
+    robots: { index: false, follow: true },
   };
 }
 

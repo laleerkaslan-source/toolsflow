@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +26,14 @@ export async function generateMetadata({
         en: "/en/blog/ihbar-tazminati-hesaplama-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Ihbar Tazminati Hesaplama 2026 — Sureler, Hak Kazanma, Ornek" : "Notice Pay Calculation 2026 (Turkey) — Periods, Eligibility",
+      description: isTr ? "Ihbar tazminati nedir, kac gun, kimler hak kazanir? 4857 sayili Is Kanunu'na gore ihbar sureleri, hesaplama formulu ve ornek." : "What is notice pay in Turkey? Periods, eligibility and calculation formula based on Labor Law No. 4857 with examples.",
+      url: `${SITE_URL}${isTr ? "/blog/ihbar-tazminati-hesaplama-2026" : "/en/blog/ihbar-tazminati-hesaplama-2026"}`,
+      category: "Is Hukuku",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -150,10 +160,68 @@ export default async function IhbarTazminatiPage({
             <li>Belirsiz sureli is sozlesmelerinde gecerlidir</li>
           </ul>
 
+          <h2>Vaka: Yazilim Sirketinde 5 Yillik Calisan</h2>
+          <p>
+            Izmir merkezli bir teknoloji sirketinde 5 yildir backend gelistirici
+            olarak calisan biri, sirket yeniden yapilanma kararindan etkilenip
+            isten cikariliyor. Sirket ihbar suresine uymadan tazminat odemeyi
+            tercih ediyor:
+          </p>
+          <ul>
+            <li>Brut maas: 72.000 TL (giydirilmis)</li>
+            <li>Gunluk brut ucret: 72.000 / 30 = 2.400 TL</li>
+            <li>Kidem 5 yil → ihbar suresi <strong>8 hafta = 56 gun</strong></li>
+            <li>Ihbar tazminati: 2.400 × 56 = <strong>134.400 TL brut</strong></li>
+            <li>Gelir vergisi (kumulatif %27 dilimine girdiyse): ~36.000 TL</li>
+            <li>Damga vergisi: ~1.020 TL</li>
+            <li>Net ihbar tazminati: <strong>~97.380 TL</strong></li>
+          </ul>
+          <p>
+            Ayni calisan ayrica <strong>5 yillik kidem tazminati</strong> da hak
+            edecektir; bu kidem tazminati ihbardan farkli olarak vergiden muaftir
+            ve tavan tutarli olarak hesaplanir. Toplam paket: <strong>~318.000 TL
+            net</strong> civarinda olur.
+          </p>
+
+          <h2>Yanlis Bilinen Konular</h2>
+          <ul>
+            <li>
+              <strong>&quot;Istifa ederim, ihbar tazminati alirim&quot;</strong> — Yanlis.
+              Istifa eden isci ihbar suresine UYMAK zorundadir; uymazsa kendisi
+              isverene ihbar tazminati oder. Hak kazanan tarafdir, hak veren degil.
+            </li>
+            <li>
+              <strong>&quot;Kidem tazminatiyla ayni sey&quot;</strong> — Hayir. Kidem
+              tazminati 1 yildan fazla calisanlara haklı nedenle fesihte odenir,
+              VERGIDEN MUAFTIR ve tavan uygulanir (2026: 44.764,27 TL/yil). Ihbar
+              tazminati ise ihbar suresine uyulmadiginda odenir, TAVANI YOKTUR ama
+              GELIR VERGISI ve DAMGA VERGISI&apos;ne tabidir.
+            </li>
+            <li>
+              <strong>&quot;Sirket ihbar suresinde calistirip yine de odeme yapar&quot;</strong> —
+              Yanlis. Ihbar suresinde fiilen calisirsa, ek tazminat odenmez.
+              Calisan, haftada 2 saat <strong>is arama izni</strong> kullanma
+              hakkina sahiptir (4857/27).
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Ihbar tazminati hukmu{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">4857 sayili Is Kanunu&apos;nun 17. maddesi</a>{" "}
+            ile duzenlenir. Vergi mevzuati icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>&apos;nin
+            193 sayili Gelir Vergisi Kanunu&apos;nu, anlasmazliklarin cozumu icin{" "}
+            <a href="https://www.csgb.gov.tr/arabuluculuk/" target="_blank" rel="noopener noreferrer">arabuluculuk surecini</a>{" "}
+            inceleyebilirsiniz (2018&apos;den beri zorunlu basvuru noktasidir).
+          </p>
+
           <h2>Hesaplamak Icin</h2>
           <p>
             Kidem ve ihbar tazminati hesaplamak icin
             <strong> tazminat hesaplayici aracimizi</strong> kullanabilirsiniz.
+            Aract kidem suresine gore ihbar gunlerini otomatik belirler ve vergi
+            sonrasi net tutari gosterir.
           </p>
         </>
       ) : (

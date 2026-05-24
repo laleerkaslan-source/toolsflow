@@ -9,6 +9,7 @@ import { Link } from "@/i18n/navigation";
 import { BLOG_POSTS } from "@/app/[locale]/blog/page";
 import { Disclaimer } from "@/components/layout/disclaimer";
 import { AuthorBio } from "@/components/blog/author-bio";
+import { OrganizationJsonLd } from "@/components/seo/json-ld";
 
 interface BlogLayoutProps {
   slug: string;
@@ -42,6 +43,7 @@ export function BlogLayout({
         description={description}
         url={url}
         datePublished={datePublished}
+        dateModified="2026-05-24"
         author="Lale Dijital"
         locale={locale}
       />
@@ -53,6 +55,7 @@ export function BlogLayout({
         ]}
       />
       {faq && <FaqJsonLd items={faq} />}
+      <OrganizationJsonLd />
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_300px]">
@@ -63,13 +66,29 @@ export function BlogLayout({
               <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
                 {description}
               </p>
-              <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-                <time dateTime={datePublished}>
-                  {new Date(datePublished).toLocaleDateString(
-                    isTr ? "tr-TR" : "en-US",
-                    { year: "numeric", month: "long", day: "numeric" }
-                  )}
-                </time>
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                <span className="flex items-center gap-1">
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground/70">
+                    {isTr ? "Yayın" : "Published"}:
+                  </span>
+                  <time dateTime={datePublished}>
+                    {new Date(datePublished).toLocaleDateString(
+                      isTr ? "tr-TR" : "en-US",
+                      { year: "numeric", month: "long", day: "numeric" }
+                    )}
+                  </time>
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground/70">
+                    {isTr ? "Güncellendi" : "Updated"}:
+                  </span>
+                  <time dateTime="2026-05-24">
+                    {new Date("2026-05-24").toLocaleDateString(
+                      isTr ? "tr-TR" : "en-US",
+                      { year: "numeric", month: "long", day: "numeric" }
+                    )}
+                  </time>
+                </span>
                 <span>Lale Dijital</span>
               </div>
             </header>

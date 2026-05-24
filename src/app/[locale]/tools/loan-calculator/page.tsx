@@ -1,5 +1,7 @@
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { LoanCalculator } from "@/components/tools/loan-calculator";
+import { HowToJsonLd } from "@/components/seo/json-ld";
+import { LoanAmortizationChart } from "@/components/blog/charts/loan-amortization-chart";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -99,6 +101,8 @@ export default async function LoanCalculatorPage({
         <li>Aylık taksit, toplam ödeme ve amortisman tablosunu görün</li>
       </ol>
 
+      <LoanAmortizationChart locale={locale} />
+
       <h2>Erken Kapama Avantajı</h2>
       <p>
         Kredinizi erken kapatırsanız henüz tahakkuk etmemiş faizleri ödemezsiniz.
@@ -154,9 +158,36 @@ export default async function LoanCalculatorPage({
     </>
   );
 
+  const howToSteps = isTr
+    ? [
+        { name: "Kredi tutarini gir", text: "Almak istediginiz kredi tutarini TL olarak yazin." },
+        { name: "Vade sec", text: "Geri odeme vadesini ay olarak belirleyin (3-240 ay)." },
+        { name: "Aylik faiz orani gir", text: "Bankanizin verdigi aylik faiz oranini yazin." },
+        { name: "Kredi turunu sec", text: "Ihtiyac veya konut kredisi sec — vergi hesaplamasi degisir." },
+        { name: "Sonucu incele", text: "Aylik taksit, toplam geri odeme ve amortisman tablosunu gor." },
+      ]
+    : [
+        { name: "Enter loan amount", text: "Type the loan amount in TL." },
+        { name: "Set term", text: "Choose repayment term in months (3-240)." },
+        { name: "Enter monthly rate", text: "Type the monthly interest rate from your bank." },
+        { name: "Select loan type", text: "Pick personal or mortgage — tax calculation differs." },
+        { name: "Review schedule", text: "See monthly payment, total cost and full amortization." },
+      ];
+
   return (
-    <ToolLayout toolId="loan-calculator" locale={locale} faq={faq} guide={guide}>
-      <LoanCalculator />
-    </ToolLayout>
+    <>
+      <HowToJsonLd
+        name={isTr ? "Kredi Taksidi Nasil Hesaplanir?" : "How to Calculate Loan Payment"}
+        description={
+          isTr
+            ? "Anuite formulu ile aylik kredi taksidi ve toplam geri odeme hesaplama adimlari."
+            : "Calculate monthly loan installments and total repayment using the annuity formula."
+        }
+        steps={howToSteps}
+      />
+      <ToolLayout toolId="loan-calculator" locale={locale} faq={faq} guide={guide}>
+        <LoanCalculator />
+      </ToolLayout>
+    </>
   );
 }

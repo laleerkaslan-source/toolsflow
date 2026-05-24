@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { SgkBreakdownChart } from "@/components/blog/charts/sgk-breakdown-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +27,14 @@ export async function generateMetadata({
         en: "/en/blog/asgari-ucret-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "2026 Asgari Ucret Brut Net — AGI, SGK, Isveren Maliyeti" : "2026 Minimum Wage in Turkey — Gross, Net, Employer Cost",
+      description: isTr ? "2026 asgari ucret brut 22.104,67 TL, net 17.002 TL. SGK kesintileri, asgari gecim indirimi ve isveren maliyeti detaylari." : "2026 minimum wage in Turkey: 22,104.67 TL gross, 17,002 TL net. SSI deductions, tax exemption and full employer cost breakdown.",
+      url: `${SITE_URL}${isTr ? "/blog/asgari-ucret-2026" : "/en/blog/asgari-ucret-2026"}`,
+      category: "Finans",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -104,6 +115,7 @@ export default async function AsgariUcretPage({
           </p>
 
           <h2>Asgari Ucret Kesintileri</h2>
+          <SgkBreakdownChart locale={locale} />
           <table>
             <thead>
               <tr>
@@ -136,10 +148,60 @@ export default async function AsgariUcretPage({
             hepsine esit sekilde uygulanir.
           </p>
 
+          <h2>Ornek: Bir Tekstil Atolyesinde 8 Calisan</h2>
+          <p>
+            Bursa&apos;da kucuk olcekli bir tekstil atolyesinde 8 kisi asgari ucretle
+            calisiyor. 2026 yilinda her bir calisan icin isveren ayda <strong>26.005 TL</strong>,
+            yilda 312.060 TL odeme yapmaktadir. 8 calisan icin yillik toplam maliyet
+            <strong>2.496.480 TL</strong>&apos;dir. 5 puanlik hazine indirimi sartlarini
+            karsiliyorsa (SGK borcu olmamak ve duzenli bildirim yapmak) yillik maliyet
+            yaklasik 192.000 TL azalir — bu da yaklasik 1 kisilik ek istihdam imkani demektir.
+          </p>
+          <p>
+            Ayni atolye, calisanlardan birinin maasini 30.000 TL brute cikarsa, ek
+            5.895,33 TL brut farkin sadece <strong>~4.250 TL&apos;si</strong> calisanin
+            cebine girer (gelir vergisi %15 dilimine girer + SGK kesintisi olur).
+            Geri kalan yaklasik 1.645 TL devlete ve sigortaya gider. Bu, isverenler ve
+            iscilerin kafasini en cok karistiran konulardan biridir.
+          </p>
+
+          <h2>Yanlis Bilinenler</h2>
+          <ul>
+            <li>
+              <strong>&quot;Asgari ucret gelir vergisi alir&quot;</strong> — Yanlis. 2022&apos;den
+              beri asgari ucret tutari kadar olan kisim tum maaslarda vergiden muaftir.
+              Yani 100.000 TL brut maas alan biri de ilk 22.104,67 TL&apos;si icin vergi odemez.
+            </li>
+            <li>
+              <strong>&quot;Isveren asgari ucretten daha az verebilir&quot;</strong> — Hayir.
+              4857 sayili Is Kanunu&apos;na gore asgari ucretten az odeme yapan isveren
+              idari para cezasi ile karsi karsiya kalir. Calisan, eksik tutari yargi
+              yoluyla geriye donuk talep edebilir.
+            </li>
+            <li>
+              <strong>&quot;AGI hala uygulaniyor&quot;</strong> — Yanlis. Asgari Gecim Indirimi
+              2022&apos;de kaldirildi. Yerine asgari ucret istisnasi geldi ve etkisi
+              tum ucretlilere yayildi.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Asgari ucret 2026 tutari, <a href="https://www.aile.gov.tr" target="_blank" rel="noopener noreferrer">Calisma ve Sosyal Guvenlik Bakanligi</a>&apos;na
+            bagli Asgari Ucret Tespit Komisyonu tarafindan her yil Aralik ayinda
+            belirlenir ve Resmi Gazete&apos;de yayimlanir. Kesintiler icin{" "}
+            <a href="https://www.sgk.gov.tr" target="_blank" rel="noopener noreferrer">SGK</a>{" "}
+            (5510 sayili Kanun) ve gelir vergisi muafiyeti icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            sayfalarini takip edebilirsiniz.
+          </p>
+
           <h2>Net Maas Hesaplamasi Icin</h2>
           <p>
             Kendi maasinizi hesaplamak veya zam sonrasi yeni net maasinizi
             gormek icin <strong>maas hesaplayici aracimizi</strong> kullanabilirsiniz.
+            Brut tutari girince anlik olarak SGK, vergi ve isveren maliyetinin
+            dokumunu gosterir.
           </p>
         </>
       ) : (
@@ -176,6 +238,33 @@ export default async function AsgariUcretPage({
           <p>
             Since 2022, income up to the minimum wage level is fully exempt from
             income tax and stamp tax for all employees, regardless of total salary.
+          </p>
+
+          <h2>Example: A Bursa Textile Workshop With 8 Workers</h2>
+          <p>
+            A small Bursa workshop employs 8 people on minimum wage. The 2026 cost
+            per worker is <strong>26,005 TL/month</strong> &mdash; or <strong>2,496,480 TL/year</strong>
+            for all eight. Employers who qualify for the 5-point treasury discount
+            (no SSI debt + on-time reporting) save ~192,000 TL annually &mdash; roughly
+            one additional employee.
+          </p>
+
+          <h2>Common Misconceptions</h2>
+          <ul>
+            <li><strong>&quot;Minimum wage pays income tax&quot;</strong> &mdash; False. Since 2022, all employees enjoy a tax exemption equal to the minimum wage amount.</li>
+            <li><strong>&quot;Employers can pay below minimum wage&quot;</strong> &mdash; No. Article 39 of Labor Law No. 4857 prohibits it. Underpaid workers can recover the difference via court.</li>
+            <li><strong>&quot;AGI is still in effect&quot;</strong> &mdash; Wrong. The Minimum Living Allowance was replaced in 2022 by the universal minimum-wage exemption.</li>
+          </ul>
+
+          <h2>Official Sources</h2>
+          <p>
+            The minimum wage is set yearly in December by the Minimum Wage Commission
+            under the <a href="https://www.aile.gov.tr" target="_blank" rel="noopener noreferrer">Ministry of Labor</a>{" "}
+            and published in the Official Gazette. See{" "}
+            <a href="https://www.sgk.gov.tr" target="_blank" rel="noopener noreferrer">SSI</a>{" "}
+            for deduction rules (Law No. 5510) and{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Revenue Administration</a>{" "}
+            for tax exemption details.
           </p>
 
           <h2>Calculate Your Salary</h2>

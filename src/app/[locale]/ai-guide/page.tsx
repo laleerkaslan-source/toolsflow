@@ -21,6 +21,7 @@ export async function generateMetadata({
         en: "/en/ai-guide",
       },
     },
+    robots: { index: false, follow: false },
   };
 }
 

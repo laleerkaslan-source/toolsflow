@@ -21,6 +21,7 @@ export async function generateMetadata({
         en: "/en/tools/bmi-calculator",
       },
     },
+    robots: { index: false, follow: true },
   };
 }
 

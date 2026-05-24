@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { CompoundInterestChart } from "@/components/blog/charts/compound-interest-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +27,14 @@ export async function generateMetadata({
         en: "/en/blog/bilesik-faiz-hesaplama",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Bilesik Faiz Nedir, Nasil Hesaplanir? Formul ve Ornekler" : "Compound Interest Explained — Formula, Examples & Calculator",
+      description: isTr ? "Bilesik faiz nedir, basit faizden farki nedir? Formul, ornek hesaplama ve yatirim getirisine etkisi." : "What is compound interest, how does it differ from simple interest? Formula, examples and its impact on investment returns.",
+      url: `${SITE_URL}${isTr ? "/blog/bilesik-faiz-hesaplama" : "/en/blog/bilesik-faiz-hesaplama"}`,
+      category: "Yatirim",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -116,6 +127,7 @@ export default async function BilesikFaizPage({
           </ul>
 
           <h2>Basit Faiz vs Bilesik Faiz</h2>
+          <CompoundInterestChart locale={locale} />
           <p>
             100.000 TL&apos;yi %40 yillik faizle 10 yil yatirdiginizi dusunelim:
           </p>
@@ -156,6 +168,66 @@ export default async function BilesikFaizPage({
           <p>
             Farkli faiz oranlari, sureler ve aylik katki senaryolari icin
             <strong> yatirim getiri hesaplayicimizi</strong> deneyebilirsiniz.
+          </p>
+
+          <h2>Vaka: 22 Yasinda Mezun Olan Iki Arkadas</h2>
+          <p>
+            Universiteden yeni mezun olan iki arkadasi ele alalim. Aysenur (22)
+            mezun olur olmaz ayda <strong>2.500 TL</strong> birikim yapmaya basliyor
+            ve %30 yillik bilesik faiz getirisi olan bir TL mevduata yatiriyor.
+            Burak (22) ise &quot;daha vaktim var&quot; deyip 10 yil sonra (32 yasinda)
+            ayni miktar birikime basliyor.
+          </p>
+          <p>
+            65 yasinda (43 yil sonra Aysenur, 33 yil sonra Burak):
+          </p>
+          <ul>
+            <li>Aysenur: 2.500 TL × 43 yil aylik katki + bilesik faiz =
+              ~<strong>15,2 milyon TL</strong> birikmis sermaye</li>
+            <li>Burak: 2.500 TL × 33 yil aylik katki + bilesik faiz =
+              ~<strong>1,1 milyon TL</strong> birikmis sermaye</li>
+          </ul>
+          <p>
+            Sadece <strong>10 yil erken baslamak</strong> emeklilikte 14 kat daha
+            fazla birikim demektir. Toplam yatirilan ana para Aysenur icin
+            sadece 1,29 milyon TL, Burak icin ise 0,99 milyon TL — 300 bin TL
+            ek katki yapmis Aysenur ama 14 milyon TL fazla birikim olusturmus.
+            Bu, bilesik faizin &quot;zaman ile carpan etkisidir&quot;.
+          </p>
+
+          <h2>Sik Yapilan Hatalar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Mevduat faizi her zaman bilesik&quot;</strong> — Hayir. Banka
+              mevduat faizleri vade sonunda anaparaya eklenir; vade icinde
+              odenmez. Eger vadenin sonundaki tutari yeniden yatirmazsaniz
+              <strong> basit faiz</strong> islemis olur. Otomatik yenileme acmali!
+            </li>
+            <li>
+              <strong>&quot;Yuksek faiz daima daha iyidir&quot;</strong> — Yari dogru.
+              <strong> Reel getiri</strong>, nominal getiriden enflasyon
+              cikarilarak bulunur. %40 faiz, %50 enflasyon varsa reel olarak
+              <strong>-%7 kayiptir</strong>. Reel getiri pozitif olmali.
+            </li>
+            <li>
+              <strong>&quot;Stopaj yok&quot;</strong> — TL mevduata stopaj uygulanir
+              (kisa vadede %10-15&apos;e kadar). Vergisiz reel getiri hesabi yapilirken
+              stopaj dusulmeli.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Banka faiz oranlari ve mevduat sigortasi icin{" "}
+            <a href="https://www.bddk.org.tr" target="_blank" rel="noopener noreferrer">BDDK</a>{" "}
+            ve{" "}
+            <a href="https://www.tmsf.org.tr" target="_blank" rel="noopener noreferrer">Tasarruf Mevduati Sigorta Fonu (TMSF)</a>{" "}
+            resmi sayfalari oncelikli kaynaklardir (TMSF 950.000 TL&apos;ye kadar
+            mevduati guvence altina alir). Yatirim fonu performansi icin{" "}
+            <a href="https://www.tefas.gov.tr" target="_blank" rel="noopener noreferrer">TEFAS (Turkiye Elektronik Fon Alim Satim Platformu)</a>{" "}
+            ve hisse senedi yatirimi icin{" "}
+            <a href="https://www.borsaistanbul.com" target="_blank" rel="noopener noreferrer">Borsa Istanbul</a>{" "}
+            verileri kullanilabilir.
           </p>
         </>
       ) : (

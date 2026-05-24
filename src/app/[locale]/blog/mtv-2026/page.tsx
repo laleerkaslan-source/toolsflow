@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -22,6 +24,14 @@ export async function generateMetadata({
         en: "/en/blog/mtv-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "MTV 2026 — Motorlu Tasitlar Vergisi Tarifesi ve Odeme" : "Motor Vehicle Tax 2026 (Turkey) — Rates & Payment",
+      description: isTr ? "2026 MTV tarifesi: otomobil, SUV, minibus, kamyonet icin motor hacmi ve yasa gore vergi tutarlari. Odeme tarihleri ve muafiyetler." : "2026 Motor Vehicle Tax (MTV) table for Turkey: amounts by engine size and vehicle age. Payment dates and exemptions.",
+      url: `${SITE_URL}${isTr ? "/blog/mtv-2026" : "/en/blog/mtv-2026"}`,
+      category: "Vergi",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -159,6 +169,64 @@ export default async function MtvPage({
             birlikte hesaplanmalidir.
             <strong> Kredi hesaplayici</strong> aracimiz ile tasit kredisi
             taksitinizi bulabilirsiniz.
+          </p>
+
+          <h2>Vaka: Aile Sahibi Bir Filo Kararsiziligi</h2>
+          <p>
+            Ankara&apos;da 4 kisilik bir aile, 2 araca sahip olmayi degerlendiriyor:
+          </p>
+          <ul>
+            <li><strong>Secenek A:</strong> 2026 model 1.6 SUV (1.598 cc) — MTV 1-3 yas dilimi: <strong>6.373 TL/yil</strong></li>
+            <li><strong>Secenek B:</strong> 2020 model 2.0 sedan (1.997 cc) — 4-6 yas dilimi: <strong>13.666 TL/yil</strong></li>
+          </ul>
+          <p>
+            Goruldugu uzere yeni ama dusuk motor hacimli arac (Secenek A), 6 yil
+            once alinmis 2 litrelik araca gore yilda 7.293 TL daha az MTV oder.
+            10 yillik kullanim suresinde MTV farki yaklasik <strong>73.000 TL</strong>
+            seviyesine ulasir — bu kucumsenecek bir tutar degildir. Buna ek olarak
+            elektrikli arac secimi (orn. 80 kW motor gucu) yilda yaklasik
+            <strong> 4.500 TL</strong> MTV ile en avantajli secenektir.
+          </p>
+
+          <h2>Yanlis Bilinen Hususlar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Aracin pazar degeri MTV&apos;yi belirler&quot;</strong> — Yanlis.
+              MTV motor hacmi (cc) ve YAS uzerinden hesaplanir. 4 milyon TL&apos;lik
+              bir SUV ile 800.000 TL&apos;lik aile sedani, ayni motor hacmi ve yas
+              kategorisindeyse ayni MTV&apos;yi oder.
+            </li>
+            <li>
+              <strong>&quot;Yas ay bazinda hesaplanir&quot;</strong> — Hayir. MTV&apos;de yas
+              <strong> tescil tarihinden itibaren TAM YIL</strong> olarak sayilir.
+              2024 Mart&apos;ta tescil edilen arac, 2026 Ocak&apos;ta hala &quot;1-3 yas&quot;
+              kategorisindedir.
+            </li>
+            <li>
+              <strong>&quot;Engelli muafiyeti her engellilige uygulanir&quot;</strong> —
+              Yanlis. %90 ve uzeri engellilik raporu sarti vardir. Daha dusuk
+              oranlarda farkli vergisel destekler vardir ama MTV muafiyeti yoktur.
+            </li>
+            <li>
+              <strong>&quot;Gecikmis MTV affa girer&quot;</strong> — Genelde dogru ama her
+              donem icin geni - 2023 ve 2024 yapilandirma kanunlari ile pek cok
+              MTV borcu yapilandirildi. Suresinde basvurmayanlar fark eder.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            MTV{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=197&MevzuatTur=1&MevzuatTertip=4" target="_blank" rel="noopener noreferrer">197 sayili Motorlu Tasitlar Vergisi Kanunu</a>{" "}
+            ile duzenlenir. Guncel tarife icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            yillik tebliglerini takip edin. Odeme icin{" "}
+            <a href="https://ivd.gib.gov.tr" target="_blank" rel="noopener noreferrer">Interaktif Vergi Dairesi</a>{" "}
+            veya{" "}
+            <a href="https://www.turkiye.gov.tr" target="_blank" rel="noopener noreferrer">e-Devlet</a>{" "}
+            kullanabilirsiniz. Engelli muafiyeti basvurusu icin
+            <a href="https://gib.gov.tr/yardim-ve-kaynaklar/yararli-bilgiler/engellilik-muafiyeti" target="_blank" rel="noopener noreferrer"> GIB Engellilik Muafiyeti</a>{" "}
+            sayfasi rehberdir.
           </p>
         </>
       ) : (

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { SeveranceTenureChart } from "@/components/blog/charts/severance-tenure-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +27,14 @@ export async function generateMetadata({
         en: "/en/blog/kidem-tazminati-hesaplama-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Kidem Tazminati Hesaplama 2026 — Tavan, Sartlar, Ornek" : "Severance Pay Calculation 2026 Turkey — Ceiling, Conditions, Examples",
+      description: isTr ? "Kidem tazminati nasil hesaplanir? 2026 guncel tavan tutari, hak kazanma sartlari, damga vergisi, ihbar suresi ve ornek hesaplamalar." : "How is severance pay calculated in Turkey? 2026 ceiling, eligibility, stamp tax, notice period and example calculations.",
+      url: `${SITE_URL}${isTr ? "/blog/kidem-tazminati-hesaplama-2026" : "/en/blog/kidem-tazminati-hesaplama-2026"}`,
+      category: "Finans",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -141,6 +152,7 @@ export default async function KidemTazminatiPage({
           </ul>
 
           <h2>2026 Kidem Tazminati Tavani</h2>
+          <SeveranceTenureChart locale={locale} />
           <table>
             <thead>
               <tr>
@@ -227,6 +239,62 @@ export default async function KidemTazminatiPage({
           </ul>
           <p>
             Kesin hesaplama icin <strong>kidem tazminati hesaplayici aracimizi</strong> kullanabilirsiniz.
+          </p>
+
+          <h2>Gercek Senaryo: 12 Yillik Bankaci</h2>
+          <p>
+            Bir ozel bankada 12 yildir hesap muduru olarak calisan biri, 2026
+            Eylul ayinda emekliye ayriliyor. Son brut giydirilmis ucreti 95.000 TL
+            (yemek + yol + duzenli ikramiyeler dahil):
+          </p>
+          <ul>
+            <li>Aylik brut ucret: 95.000 TL</li>
+            <li>Tavan kontrolu: 95.000 &gt; 44.764,27 → <strong>tavan uygulanir</strong></li>
+            <li>Yillik tazminat: 44.764,27 TL (tavan)</li>
+            <li>Brut tazminat: 12 × 44.764,27 = <strong>537.171,24 TL</strong></li>
+            <li>Damga vergisi (%0,759): -4.077 TL</li>
+            <li><strong>Net tazminat: 533.094 TL</strong></li>
+          </ul>
+          <p>
+            Eger tavan olmasaydi, ayni calisanin yillik tazminati 95.000 × 12 =
+            1.140.000 TL olacakti — yani 600.000 TL daha fazla. Tavan, yuksek
+            ucretli calisanlarin tazminat hakkini ciddi olcude sinirlar; bu yuzden
+            sendika gorusmelerinin en cok tartisilan maddesidir.
+          </p>
+
+          <h2>Sik Yapilan Hatalar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Istifa eden de tazminat alir&quot;</strong> — Yanlis. Istifa
+              halinde kidem tazminati alinmaz; ancak <strong>askerlik, evlilik
+              (kadinlarda), emeklilik</strong> gibi durumlarda istifa ile de hak
+              dogar. Bu &quot;hakli istifa&quot; olarak adlandirilir.
+            </li>
+            <li>
+              <strong>&quot;Aylik 30 gun yerine fiili gun esastir&quot;</strong> — Yanlis.
+              4857/14 maddesine gore 30 gun esas alinir; iscinin o ay kac gun
+              calistigi onemli degildir. Yari donem kullanilmis izinler kidem
+              hesabini etkilemez.
+            </li>
+            <li>
+              <strong>&quot;Belirli sureli sozlesmeyle kidem hakki yok&quot;</strong> —
+              Kismen dogru. Belirli sureli sozlesme suresi BITERSE kidem dogmaz,
+              ama isveren erken feshederse dogar. Surekli yenilenen belirli
+              sureli sozlesmeler de zaman icinde kidem hakki olusturabilir
+              (Yargitay icthihatleri).
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Kidem tazminati duzenlemesi{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">4857 sayili Is Kanunu&apos;nun 14. maddesi</a>{" "}
+            ile yapilmistir (eski 1475/14 hukmu hala uygulanir). Tavan tutarlari
+            her donem{" "}
+            <a href="https://www.csgb.gov.tr" target="_blank" rel="noopener noreferrer">Calisma ve Sosyal Guvenlik Bakanligi</a>{" "}
+            tarafindan duyurulur. Anlasmazliklarda 2018&apos;den itibaren{" "}
+            <a href="https://www.adalet.gov.tr/arabuluculuk" target="_blank" rel="noopener noreferrer">arabuluculuk</a>{" "}
+            zorunlu basvuru noktasidir; sonuc alinmazsa Is Mahkemesi yetkilidir.
           </p>
         </>
       ) : (

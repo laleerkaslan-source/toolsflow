@@ -1,5 +1,8 @@
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { SalaryCalculator } from "@/components/tools/salary-calculator";
+import { HowToJsonLd } from "@/components/seo/json-ld";
+import { TaxBracketsChart } from "@/components/blog/charts/tax-brackets-chart";
+import { SgkBreakdownChart } from "@/components/blog/charts/sgk-breakdown-chart";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -90,6 +93,7 @@ export default async function SalaryCalculatorPage({
       </p>
 
       <h2>2026 Gelir Vergisi Dilimleri</h2>
+      <TaxBracketsChart locale={locale} />
       <ul>
         <li>0 - 158.000 TL: %15</li>
         <li>158.000 - 330.000 TL: %20</li>
@@ -97,6 +101,7 @@ export default async function SalaryCalculatorPage({
         <li>800.000 - 4.300.000 TL: %35</li>
         <li>4.300.000 TL üzeri: %40</li>
       </ul>
+      <SgkBreakdownChart locale={locale} />
 
       <h2>Aracı Nasıl Kullanırsınız?</h2>
       <ol>
@@ -163,9 +168,34 @@ export default async function SalaryCalculatorPage({
     </>
   );
 
+  const howToSteps = isTr
+    ? [
+        { name: "Brut maasi gir", text: "Aylik brut maasinizi TL cinsinden girin." },
+        { name: "Ayi sec", text: "Hesaplama yapilacak ayi secin — kumulatif vergi icin onemlidir." },
+        { name: "Ek kesintileri ekle", text: "Varsa AGI, ek odemeler veya ozel kesintileri belirtin." },
+        { name: "Sonucu gor", text: "Net maas, SGK, gelir vergisi ve isveren maliyetini detayli olarak goruntuleyin." },
+      ]
+    : [
+        { name: "Enter gross salary", text: "Type your monthly gross salary in TL." },
+        { name: "Select month", text: "Pick the month — important for cumulative income tax." },
+        { name: "Add extras", text: "Specify additional payments or deductions if any." },
+        { name: "View result", text: "See net salary, SSI, income tax and full employer cost." },
+      ];
+
   return (
-    <ToolLayout toolId="salary-calculator" locale={locale} faq={faq} guide={guide}>
-      <SalaryCalculator />
-    </ToolLayout>
+    <>
+      <HowToJsonLd
+        name={isTr ? "Brut Net Maas Nasil Hesaplanir?" : "How to Calculate Net Salary in Turkey"}
+        description={
+          isTr
+            ? "2026 vergi dilimleri ve SGK oranlari ile brut maastan net maasa hesaplama adimlari."
+            : "Step-by-step gross-to-net salary calculation with 2026 tax brackets and SSI rates."
+        }
+        steps={howToSteps}
+      />
+      <ToolLayout toolId="salary-calculator" locale={locale} faq={faq} guide={guide}>
+        <SalaryCalculator />
+      </ToolLayout>
+    </>
   );
 }

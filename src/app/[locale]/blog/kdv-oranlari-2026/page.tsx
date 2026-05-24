@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +26,14 @@ export async function generateMetadata({
         en: "/en/blog/kdv-oranlari-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "KDV Oranlari 2026 Guncel Liste — %1, %10, %20 Hangi Urune?" : "Turkey VAT Rates 2026 — Complete List of 1%, 10%, 20% Rates",
+      description: isTr ? "Turkiye'deki guncel KDV oranlari: %1, %10, %20. Gida, saglik, egitim, elektronik ve diger urunlerin KDV oranlari. Orneklerle tam rehber." : "Current VAT rates in Turkey: 1%, 10%, 20%. VAT rates for food, health, education, electronics and more. Complete guide with examples.",
+      url: `${SITE_URL}${isTr ? "/blog/kdv-oranlari-2026" : "/en/blog/kdv-oranlari-2026"}`,
+      category: "Finans",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -199,6 +209,54 @@ export default async function KdvOranlariPage({
             Turkiye&apos;de KDV orani 1985&apos;te %10 olarak basladi, 2009&apos;da %18&apos;e cikti.
             Temmuz 2023&apos;te yapilan son artisla genel oran %20&apos;ye yukseldi. Ayni
             duzenlemede %8 olan indirimli oran %10&apos;a cikarildi.
+          </p>
+
+          <h2>Vaka: Bir Restoran Faturasinda KDV Dagilimi</h2>
+          <p>
+            Aksamlik bir restoran ziyaretinde fatura toplam 1.450 TL geliyor.
+            Detaylar:
+          </p>
+          <ul>
+            <li>Yemek (ana hizmet, %10 KDV): 1.200 TL → KDV haric 1.090,91 TL + KDV 109,09 TL</li>
+            <li>Ek tatli ve ikram (%10 KDV): 150 TL → 136,36 + 13,64</li>
+            <li>Sise sarap (alkol, %20 KDV): 100 TL → 83,33 + 16,67</li>
+          </ul>
+          <p>
+            Toplam KDV yuku: <strong>139,40 TL</strong>. Restoran bu KDV&apos;yi devlete
+            beyan eder. Ayni faturada alkol gibi %20&apos;lik bir kalem oldugu icin
+            restoranlar farkli oranlarda KDV beyani yapmak zorunda. Bu, KDV hesabini
+            karistiranlarin en sik karsilastigi durumdur — kafa karistirici ama
+            yasal olarak ZORUNLU.
+          </p>
+
+          <h2>Sik Yapilan Hatalar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Ekmek %20 KDV&apos;li&quot;</strong> — Yanlis. Ekmek dahil temel
+              gida maddeleri %1 KDV&apos;ye tabidir. Marketten alirken zincir
+              market fislerinde KDV satiri kontrol edebilirsiniz.
+            </li>
+            <li>
+              <strong>&quot;Tum saglik hizmetleri vergiden muaf&quot;</strong> — Yari dogru.
+              Devlet hastanesi hizmetleri tamamen muaftir; ozel hastane ve klinik
+              hizmetleri ise %10 KDV&apos;ye tabidir.
+            </li>
+            <li>
+              <strong>&quot;KDV iadesi alabilirim&quot;</strong> — Yalniz KDV mukellefi
+              (sirket, esnaf, serbest meslek) iade alabilir. Bireysel tuketiciler
+              KDV iadesi alamaz.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            KDV{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=3065&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">3065 sayili Katma Deger Vergisi Kanunu</a>{" "}
+            ile duzenlenir. Guncel oran listeleri ve mal/hizmet sınıflandirmasi
+            icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            ve Cumhurbaskanligi karar yayinlarini takip edin. Sektor bazinda
+            ayrintili tebligler GIB&apos;in &quot;Vergi Mevzuati&quot; bolumunde yer alir.
           </p>
         </>
       ) : (

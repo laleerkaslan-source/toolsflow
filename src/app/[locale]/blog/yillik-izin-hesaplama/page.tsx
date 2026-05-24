@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +26,14 @@ export async function generateMetadata({
         en: "/en/blog/yillik-izin-hesaplama",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Yillik Izin Hesaplama — Kac Gun, Nasil Kullanilir?" : "Annual Leave in Turkey — Days, Rules, Calculation",
+      description: isTr ? "Yillik izin sureleri, hak kazanma sarti, kullanilmamis izin ucreti ve 4857 sayili Is Kanunu'na gore ornekler." : "Annual leave periods, eligibility, unused leave pay and examples under Turkish Labor Law No. 4857.",
+      url: `${SITE_URL}${isTr ? "/blog/yillik-izin-hesaplama" : "/en/blog/yillik-izin-hesaplama"}`,
+      category: "Is Hukuku",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -150,6 +160,70 @@ export default async function YillikIzinPage({
           <p>
             Yillik izni farkli bir sehirde gecirecek calisan, talep ederse
             ayrica 4 gune kadar <strong>ucretsiz yol izni</strong> alabilir.
+          </p>
+
+          <h2>Vaka Analizi: 7 Yillik Magaza Mudiru</h2>
+          <p>
+            Istanbul&apos;da bir perakende zincirinde 7 yildir magaza muduru olarak
+            calisan birinin durumu su sekildedir:
+          </p>
+          <ul>
+            <li>Kidem 7 yil → yillik izin <strong>20 is gunu</strong> hakki vardir.</li>
+            <li>Son 3 yilda yillik izinlerinin tamamini kullanmamis, biriken <strong>22 gunluk</strong>
+              kullanilmamis izni mevcuttur.</li>
+            <li>2026 Mayis&apos;ta isten ayrildiginda son giydirilmis brut ucreti 78.000 TL.</li>
+            <li>Gunluk ucret: 78.000 / 30 = 2.600 TL</li>
+            <li>Izin ucreti: 2.600 × 22 = <strong>57.200 TL brut</strong></li>
+            <li>Gelir vergisi (kumulatif %20 dilimi) ve damga vergisi sonrasi net: ~42.500 TL</li>
+          </ul>
+          <p>
+            Onemli not: Izin ucreti <strong>fesih sirasinda</strong> odenmek zorundadir;
+            isveren odeme yapmazsa Yargitay&apos;in yerlesik icthihatlarina gore aylik
+            yasal faiz islemeye baslar. Iscinin son kullanilmis izin tarihini
+            kanitlamak icin <strong>imzali izin defteri</strong> veya yazili izin
+            formlarini saklamasi onerilir.
+          </p>
+
+          <h2>Cok Yanlis Bilinen 4 Konu</h2>
+          <ol>
+            <li>
+              <strong>&quot;Kullanilmayan izin yanar&quot;</strong> — Yanlis. 4857 sayili
+              Kanun&apos;un 56. maddesine gore yillik izin hakki devredilebilir.
+              Sadece zamanasimi <strong>fesih tarihinden itibaren 5 yildir</strong>.
+            </li>
+            <li>
+              <strong>&quot;Hafta sonu izinden sayilir&quot;</strong> — Yanlis. Yillik
+              izin <strong>sadece is gunu</strong> sayilir; hafta sonlari ve resmi
+              tatiller hesaba katilmaz.
+            </li>
+            <li>
+              <strong>&quot;Sirket istedigi zaman izin verir&quot;</strong> — Yari dogru.
+              Isveren izin zamanini belirler ama iscinin talebini dikkate almak
+              zorundadir. Dini bayramlar, dogum, evlilik gibi durumlarda iscinin
+              talebi oncelikli olmalidir (Yargitay 9. HD 2017/22183 karari).
+            </li>
+            <li>
+              <strong>&quot;Deneme suresi izinden sayilmaz&quot;</strong> — Yanlis. 1 yillik
+              hak kazanma suresine deneme suresi dahildir.
+            </li>
+          </ol>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Yillik izin haklari{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4857&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">4857 sayili Is Kanunu&apos;nun 53-61. maddeleri</a>{" "}
+            ile duzenlenir. Detayli yorumlar icin{" "}
+            <a href="https://www.csgb.gov.tr" target="_blank" rel="noopener noreferrer">Calisma ve Sosyal Guvenlik Bakanligi</a>{" "}
+            ve Yargitay 9. Hukuk Dairesi&apos;nin icthihatlarini takip edebilirsiniz.
+            Anlasmazlik halinde Is Mahkemesi yetkilidir, ancak once arabuluculuk
+            sureci zorunlu basvuru noktasidir.
+          </p>
+
+          <h2>Maas Hesaplamasi</h2>
+          <p>
+            Izin ucreti hesabi giydirilmis brut ucret uzerinden yapildigi icin
+            <strong> maas hesaplayici aracimiz</strong> ile aylik bruttan
+            gunluk ucrete kadar olan kademeyi gorebilirsiniz.
           </p>
         </>
       ) : (

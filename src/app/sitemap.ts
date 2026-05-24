@@ -2,11 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_URL, TOOLS } from "@/lib/constants";
 
 // Tool ID → Turkish slug mapping (must match routing.ts)
+// Sitemap'e dahil edilecek tool'lar — thin/widget-only olanlar (QR, BMI, currency, image)
+// noindex'lendi ve buradan çıkarıldı (AdSense kalite sinyali için).
 const TOOL_TR_SLUGS: Record<string, string> = {
-  "qr-code-generator": "qr-kod-olusturucu",
-  "bmi-calculator": "vki-hesaplayici",
-  "image-compressor": "resim-sikistirma",
-  "currency-converter": "doviz-cevirici",
   "salary-calculator": "maas-hesaplayici",
   "loan-calculator": "kredi-hesaplayici",
   "vat-calculator": "kdv-hesaplayici",
@@ -18,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     { en: "", tr: "", priority: 1 },
     { en: "/en/tools", tr: "/araclar", priority: 0.9 },
-    { en: "/en/ai-guide", tr: "/ai-rehber", priority: 0.8 },
     { en: "/en/about", tr: "/hakkimizda", priority: 0.5 },
     { en: "/en/contact", tr: "/iletisim", priority: 0.5 },
     { en: "/en/privacy", tr: "/gizlilik-politikasi", priority: 0.3 },

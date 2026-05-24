@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +26,14 @@ export async function generateMetadata({
         en: "/en/blog/emlak-vergisi-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Emlak Vergisi 2026 — Oranlar, Hesaplama, Odeme Tarihleri" : "Property Tax in Turkey 2026 — Rates, Dates, Calculation",
+      description: isTr ? "Emlak vergisi oranlari (konut, isyeri, arsa), 2026 rayic bedel artisi, odeme tarihleri (Mayis ve Kasim) ve muafiyetler." : "Property tax rates (home, commercial, land), 2026 valuation increases, payment dates (May and November) and exemptions.",
+      url: `${SITE_URL}${isTr ? "/blog/emlak-vergisi-2026" : "/en/blog/emlak-vergisi-2026"}`,
+      category: "Vergi",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -164,6 +174,69 @@ export default async function EmlakVergisiPage({
             Konut alirken tapu harci (%4) ve yillik emlak vergisi yuk olarak
             dikkate alinmalidir. <strong>Kredi hesaplayici</strong> aracimiz ile
             aylik taksit ve toplam maliyet planlamasi yapabilirsiniz.
+          </p>
+
+          <h2>Vaka: Istanbul ve Konya&apos;da Iki Konut Karsilastirmasi</h2>
+          <p>
+            Karsilastirma icin iki konut ornegi:
+          </p>
+          <ul>
+            <li>
+              <strong>Istanbul Kadikoy</strong>: 110 m² konut, rayic bedel
+              4.500.000 TL. Buyuksehir oran %0,2. Yillik vergi:
+              4.500.000 × %0,2 = <strong>9.000 TL</strong> (yilda 2 taksit: 4.500 TL)
+            </li>
+            <li>
+              <strong>Konya Selcuklu</strong>: Ayni m² konut, rayic bedel
+              1.200.000 TL. Buyuksehir oran %0,2. Yillik vergi:
+              1.200.000 × %0,2 = <strong>2.400 TL</strong> (yilda 2 taksit: 1.200 TL)
+            </li>
+          </ul>
+          <p>
+            Buyuksehir disindaki yerlesim yerlerinde oranlar yariya iner (%0,1).
+            Istanbul Tuzla&apos;daki ayni nitelikteki konut 4.500 TL/yil, Konya merkez
+            disindaki konut ise 1.200 TL/yil oder. 5 yillik kullanim suresinde
+            ayni m² ev icin emlak vergisi fark 33.000 TL&apos;ye yakindir &mdash; bu da
+            satin alma kararlarinda gozardi edilemeyecek bir maliyettir.
+          </p>
+
+          <h2>Sik Yapilan Hatalar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Belediyeye bildirmeden de oluyor&quot;</strong> — Hayir. Konut
+              satin alirken 1 ay icinde belediyeye <strong>emlak vergisi beyani</strong>
+              vermek zorunludur. Geç bildirim halinde gecikme faizi islenir.
+            </li>
+            <li>
+              <strong>&quot;Tapuda gozuken bedel rayic bedeldir&quot;</strong> — Yanlis.
+              Tapuda yazan satis bedeli ile belediyenin belirledigi rayic bedel
+              farklidir. Rayic bedel daha dusuk olabilir cunku belediye 4 yilda
+              bir guncelleme yapar.
+            </li>
+            <li>
+              <strong>&quot;Emekli muafiyeti tum konuta uygulanir&quot;</strong> — Yanlis.
+              Muafiyet <strong>200 m²&apos;yi gecmeyen TEK konut</strong> icindir ve
+              kisinin baska geliri olmamasi gerekir. Esin geliri olsa bile
+              muafiyet bozulabilir.
+            </li>
+            <li>
+              <strong>&quot;Boş arsa emlak vergisi az&quot;</strong> — Tam tersi. Arsa orani
+              <strong>%0,3-0,6</strong>&apos;dir; konuttan 3-6 kat fazladir. Yatirim icin
+              arsa tutanlar bu yuke dikkat etmeli.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Emlak vergisi{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=1319&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">1319 sayili Emlak Vergisi Kanunu</a>{" "}
+            ile duzenlenir. Konutunuzun rayic bedelini ve emlak vergisi hesabini
+            ogrenmek icin bagli oldugunuz <strong>belediyenin emlak servisi</strong>
+            veya{" "}
+            <a href="https://www.turkiye.gov.tr/belediye-vergi-borcu-sorgulama" target="_blank" rel="noopener noreferrer">e-Devlet Belediye Vergi Borcu Sorgulama</a>{" "}
+            servisini kullanabilirsiniz. Muafiyet basvurusu ve sartlar icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">GIB</a>{" "}
+            rehberlik dokumanlarini takip edin.
           </p>
         </>
       ) : (

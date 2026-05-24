@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { SgkBreakdownChart } from "@/components/blog/charts/sgk-breakdown-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -22,6 +25,14 @@ export async function generateMetadata({
         en: "/en/blog/sgk-primi-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "2026 SGK Primi — Isci, Isveren Oranlari, Taban ve Tavan" : "2026 SSI Premium Rates in Turkey — Employee, Employer, Ceiling",
+      description: isTr ? "2026 SGK prim oranlari: isci %14, isveren %20,5 (5 puan indirimli %15,5). Taban ve tavan tutarlari, issizlik primi ve ornekler." : "2026 SSI premium rates in Turkey: employee 14%, employer 20.5% (15.5% with discount). Floor/ceiling amounts and examples.",
+      url: `${SITE_URL}${isTr ? "/blog/sgk-primi-2026" : "/en/blog/sgk-primi-2026"}`,
+      category: "SGK",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -95,6 +106,7 @@ export default async function SgkPrimiPage({
       {isTr ? (
         <>
           <h2>2026 SGK Prim Oranlari</h2>
+          <SgkBreakdownChart locale={locale} />
           <table>
             <thead>
               <tr><th>Taraf</th><th>Prim Turu</th><th>Oran</th></tr>
@@ -141,10 +153,73 @@ export default async function SgkPrimiPage({
             aylik prim.
           </p>
 
+          <h2>Vaka: 12 Calisanli Bir Restoran</h2>
+          <p>
+            Antalya&apos;da hizmet veren orta olcekli bir restoranda 12 personel
+            calisiyor. Personelin maas yapisi soyle:
+          </p>
+          <ul>
+            <li>6 garson — 28.000 TL brut</li>
+            <li>2 sef — 55.000 TL brut</li>
+            <li>3 bulasikci — 22.104,67 TL (asgari ucret)</li>
+            <li>1 mudur — 80.000 TL brut</li>
+          </ul>
+          <p>
+            Toplam aylik brut maas: 6×28.000 + 2×55.000 + 3×22.104,67 + 80.000 =
+            <strong>424.314 TL</strong>
+          </p>
+          <p>
+            Isveren SGK yuku (5 puanlik indirim ile %17,5): <strong>74.255 TL</strong> /
+            ay → yilda <strong>891.060 TL</strong>. Indirim olmasaydi yilda
+            <strong> 1.145.628 TL</strong> olacakti — 254.000 TL fark.
+          </p>
+          <p>
+            Iscilerin payi (%15): <strong>63.647 TL</strong>/ay. Bu tutar
+            iscilerin brut maaslarindan kesilir.
+          </p>
+
+          <h2>Sik Karistirilan Konular</h2>
+          <ul>
+            <li>
+              <strong>&quot;SGK primi gunluk hesaplanir&quot;</strong> — Kismen dogru.
+              30 gunden az calisilan aylarda prim, fiili calisilan gun sayisina
+              gore bolunur. Ancak hesaplama 30 gun varsayimi uzerinden baslar.
+            </li>
+            <li>
+              <strong>&quot;Tavan uzeri SGK kesilmez&quot;</strong> — Dogru. 2026 SGK tavani
+              <strong> 166.669,50 TL</strong>; bu tutarin uzerindeki kazanc kismindan
+              SGK primi alinmaz. 250.000 TL alan biri ile 166.669 TL alan biri ayni SGK&apos;yi oder.
+            </li>
+            <li>
+              <strong>&quot;Issizlik sigortasi tum durumlarda odeme yapar&quot;</strong> —
+              Yanlis. Issizlik maasi alabilmek icin son 120 gun sigortali, son 3
+              yilda en az 600 gun prim odemis olma sarti aranir. Istifa edenler
+              issizlik maasi alamaz.
+            </li>
+            <li>
+              <strong>&quot;BAG-KUR ve 4a ayni&quot;</strong> — Hayir. 4a kapsamindaki
+              ucretli calisanlar %15 oder, BAG-KUR (4b) kapsamindaki serbest
+              calisanlar %34,75 oder. Hizmet borclanmasi gibi konular farklidir.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            SGK primleri{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5510&MevzuatTur=1&MevzuatTertip=5" target="_blank" rel="noopener noreferrer">5510 sayili Sosyal Sigortalar ve Genel Saglik Sigortasi Kanunu</a>{" "}
+            ile duzenlenir. Guncel prim oranlari ve tavan/taban tutarlari icin{" "}
+            <a href="https://www.sgk.gov.tr" target="_blank" rel="noopener noreferrer">Sosyal Guvenlik Kurumu</a>{" "}
+            resmi sayfasini takip edebilirsiniz. 5 puanlik hazine indirimi sartlari
+            icin{" "}
+            <a href="https://www.csgb.gov.tr" target="_blank" rel="noopener noreferrer">Calisma Bakanligi</a>{" "}
+            duyurulari oncelikli kaynaklardir.
+          </p>
+
           <h2>Net Maas Hesaplamasi</h2>
           <p>
             Brut maasinizdan SGK kesintilerinden sonra kalan tutari gormek icin
-            <strong> maas hesaplayici</strong> aracimizi kullanabilirsiniz.
+            <strong> maas hesaplayici</strong> aracimizi kullanabilirsiniz. Tavan
+            uzeri kazanclar icin de dogru hesaplama yapar.
           </p>
         </>
       ) : (

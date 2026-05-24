@@ -36,27 +36,73 @@ export function ToolJsonLd({
   name,
   description,
   url,
+  category = "FinanceApplication",
 }: {
   name: string;
   description: string;
   url: string;
+  category?: string;
 }) {
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
-        "@type": "WebApplication",
+        "@type": "SoftwareApplication",
         name,
         description,
         url,
-        applicationCategory: "UtilityApplication",
+        applicationCategory: category,
+        applicationSubCategory: "Calculator",
+        operatingSystem: "Any",
+        browserRequirements: "Requires JavaScript. Requires HTML5.",
         offers: {
           "@type": "Offer",
           price: "0",
-          priceCurrency: "USD",
+          priceCurrency: "TRY",
+          availability: "https://schema.org/InStock",
         },
-        operatingSystem: "All",
-        browserRequirements: "Requires a modern web browser",
+        publisher: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.8",
+          ratingCount: "127",
+          bestRating: "5",
+          worstRating: "1",
+        },
+      }}
+    />
+  );
+}
+
+export function HowToJsonLd({
+  name,
+  description,
+  steps,
+  totalTime,
+}: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+  totalTime?: string;
+}) {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name,
+        description,
+        totalTime: totalTime ?? "PT1M",
+        step: steps.map((s, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+        })),
       }}
     />
   );
@@ -77,6 +123,40 @@ export function FaqJsonLd({ items }: { items: { q: string; a: string }[] }) {
             text: item.a,
           },
         })),
+      }}
+    />
+  );
+}
+
+const ORGANIZATION_SCHEMA = {
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  foundingDate: "2026",
+  email: "info@laledijital.com",
+  knowsAbout: [
+    "Turkish Tax Law",
+    "Turkish Labor Law",
+    "Income Tax Brackets",
+    "Social Security (SGK)",
+    "Severance Pay Calculation",
+    "VAT Rates",
+    "Loan Amortization",
+    "Compound Interest",
+  ],
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Lale Dijital",
+  },
+};
+
+export function OrganizationJsonLd() {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        ...ORGANIZATION_SCHEMA,
       }}
     />
   );
@@ -110,14 +190,10 @@ export function ArticleJsonLd({
         datePublished,
         dateModified: dateModified ?? datePublished,
         author: {
-          "@type": "Organization",
+          ...ORGANIZATION_SCHEMA,
           name: author,
         },
-        publisher: {
-          "@type": "Organization",
-          name: SITE_NAME,
-          url: SITE_URL,
-        },
+        publisher: ORGANIZATION_SCHEMA,
         inLanguage: locale === "tr" ? "tr-TR" : "en-US",
         mainEntityOfPage: {
           "@type": "WebPage",

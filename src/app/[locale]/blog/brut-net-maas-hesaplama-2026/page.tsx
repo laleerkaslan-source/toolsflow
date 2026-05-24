@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { SgkBreakdownChart } from "@/components/blog/charts/sgk-breakdown-chart";
+import { TaxBracketsChart } from "@/components/blog/charts/tax-brackets-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +28,14 @@ export async function generateMetadata({
         en: "/en/blog/brut-net-maas-hesaplama-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "2026-2026 Brut Net Maas Hesaplama Rehberi — SGK, Vergi Dilimleri" : "2026-2026 Gross to Net Salary Guide — SSI, Tax Brackets (Turkey)",
+      description: isTr ? "Brut maas ile net maas arasindaki farki ogren. SGK primi %14, gelir vergisi dilimleri (%15-%40), damga vergisi ve asgari ucret istisnasi. Guncel 2026 oranlari." : "Learn the difference between gross and net salary in Turkey. SSI premium 14%, income tax brackets (15%-40%), stamp tax and minimum wage exemption. Updated 2026 rates.",
+      url: `${SITE_URL}${isTr ? "/blog/brut-net-maas-hesaplama-2026" : "/en/blog/brut-net-maas-hesaplama-2026"}`,
+      category: "Finans",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -105,6 +117,8 @@ export default async function BrutNetMaasPage({
 
           <h2>Maas Kesintileri Nelerdir?</h2>
 
+          <SgkBreakdownChart locale={locale} />
+
           <h3>1. SGK Isci Payi (%14)</h3>
           <p>
             Sosyal Guvenlik Kurumu&apos;na odenen en buyuk kesinti kalemidir. Brut maasinizin
@@ -119,6 +133,8 @@ export default async function BrutNetMaasPage({
           </p>
 
           <h3>3. Gelir Vergisi (%15 - %40)</h3>
+
+          <TaxBracketsChart locale={locale} />
           <p>
             Turkiye&apos;de gelir vergisi <strong>kumulatif</strong> olarak hesaplanir ve 5 dilim
             vardir:
@@ -235,6 +251,63 @@ export default async function BrutNetMaasPage({
           <p>
             Bu yaklasik bir hesaplamadır. Kesin sonuc icin
             <strong> maas hesaplayici aracimizi</strong> kullanmanizi oneririz.
+          </p>
+
+          <h2>Senaryo: Yil Boyu Net Maas Degisimi</h2>
+          <p>
+            Mali musavirlik ofisinde calisan bir kisinin durumu: aylik 60.000 TL
+            brut maas, hicbir ek odeme yok. Kumulatif gelir vergisi mantigini
+            anlamak icin yil boyunca net maas degisimi:
+          </p>
+          <table>
+            <thead>
+              <tr><th>Donem</th><th>Kumulatif Gelir</th><th>Vergi Dilimi</th><th>Yaklasik Net</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Ocak-Mart</td><td>0-180.000 TL</td><td>%15-%20</td><td>~47.500 TL</td></tr>
+              <tr><td>Nisan-Haziran</td><td>180.000-360.000 TL</td><td>%20-%27</td><td>~45.000 TL</td></tr>
+              <tr><td>Temmuz-Eylul</td><td>360.000-540.000 TL</td><td>%27</td><td>~42.500 TL</td></tr>
+              <tr><td>Ekim-Aralik</td><td>540.000+ TL</td><td>%27-%35</td><td>~41.000 TL</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Goruldugu uzere ayni brut maasla ayni kisi, Aralik ayinda Ocak&apos;a
+            gore <strong>~6.500 TL daha az</strong> net alabilir. Bu, kumulatif
+            vergilendirmenin dogal sonucudur ve insanlarin &quot;maasim neden dustu?&quot;
+            sorusunu en cok yonelttigi durumdur.
+          </p>
+
+          <h2>Yanlis Bilinen 3 Husus</h2>
+          <ul>
+            <li>
+              <strong>&quot;Brut maasla sozlesme yapma, net olarak iste&quot;</strong> —
+              Net olarak sozlesme yasal degildir. Yargitay 9. HD&apos;nin yerlesik
+              icthihatlarina gore sozlesmede &quot;net&quot; gozukse bile brut tutara
+              cevirilir. Vergi degisimleri net olarak istense bile gerçeklesir.
+            </li>
+            <li>
+              <strong>&quot;Asgari ucret istisnasi tum aylarda esit uygulanir&quot;</strong> —
+              Dogru. Asgari ucret tutarina kadar olan kisim her ay vergiden duser,
+              ancak ust kisim icin kumulatif dilim degisir. Yani istisna sabit,
+              kalan kisim dilime gore yuksek vergiye girer.
+            </li>
+            <li>
+              <strong>&quot;SGK kesintisi her zaman ayni&quot;</strong> — SGK tavan uzeri kazanc
+              olmazsa dogru. 2026 SGK tavani <strong>166.669,50 TL</strong>;
+              tavan uzeri brut alinanlarda SGK kesintisi tavan uzerinden olur.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Maas vergilendirmesi{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=193&MevzuatTur=1&MevzuatTertip=4" target="_blank" rel="noopener noreferrer">193 sayili Gelir Vergisi Kanunu</a>{" "}
+            ile duzenlenir. Guncel dilimler ve istisnalar icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            yillik teblig listesi, SGK kesintileri icin{" "}
+            <a href="https://www.sgk.gov.tr" target="_blank" rel="noopener noreferrer">SGK</a>{" "}
+            mevzuat sayfasi kullanılmali. Bordro hatasi durumunda SGK ve ALO 170
+            (Calisma Bakanligi cagri merkezi) basvuru kanalleri kullanilabilir.
           </p>
         </>
       ) : (

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { LoanAmortizationChart } from "@/components/blog/charts/loan-amortization-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +27,14 @@ export async function generateMetadata({
         en: "/en/blog/konut-kredisi-ihtiyac-kredisi",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "Konut Kredisi vs Ihtiyac Kredisi — Farklar, Faiz, Vade" : "Mortgage vs Personal Loan in Turkey — Differences & Rates",
+      description: isTr ? "Konut kredisi ile ihtiyac kredisi arasindaki farklar, faiz oranlari, vade secenekleri ve hangisini ne zaman tercih etmelisiniz." : "Differences between mortgage and personal loans in Turkey: rates, maturity, tax benefits and which to choose when.",
+      url: `${SITE_URL}${isTr ? "/blog/konut-kredisi-ihtiyac-kredisi" : "/en/blog/konut-kredisi-ihtiyac-kredisi"}`,
+      category: "Kredi",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -140,6 +151,7 @@ export default async function KrediKarsilastirmaPage({
           </ul>
 
           <h2>Ornek Maliyet Karsilastirmasi</h2>
+          <LoanAmortizationChart locale={locale} />
           <p>500.000 TL 60 ay vadeli kredi:</p>
           <table>
             <thead>
@@ -159,6 +171,64 @@ export default async function KrediKarsilastirmaPage({
           <p>
             Her iki kredi turu icin aylik taksit ve toplam maliyet karsilastirmasini
             <strong> kredi hesaplayici aracimizla</strong> yapabilirsiniz.
+          </p>
+
+          <h2>Vaka: Genc Aile Karari — Kira mi, Kredi mi?</h2>
+          <p>
+            Istanbul Pendik&apos;te yasayan bir cift, ay basina <strong>22.000 TL kira</strong>
+            oduyor. 2.500.000 TL&apos;lik bir konut almak istiyorlar, %50&apos;sini pesinat
+            (1.250.000 TL) verecekler. Geri kalan 1.250.000 TL konut kredisi ile
+            10 yil vade ve %3 aylik faizle:
+          </p>
+          <ul>
+            <li>Aylik taksit: <strong>~42.300 TL</strong></li>
+            <li>10 yil toplam geri odeme: 5.076.000 TL</li>
+            <li>Toplam faiz: 3.826.000 TL</li>
+          </ul>
+          <p>
+            10 yil kira oderken (yillik %35 artisla): toplam ~4.300.000 TL.
+            10. yilin sonunda kiraci hala kirada, kredi alan ise <strong>2.500.000 TL+
+            deger artisli ev sahibi</strong>. Ancak likidite acisindan 10 yil
+            boyunca 20.000 TL/ay ek nakit sikistirilmali — bu da risk.
+          </p>
+
+          <h2>Sik Yapilan Hatalar</h2>
+          <ul>
+            <li>
+              <strong>&quot;Tek konutluyum, KKDF yok&quot;</strong> — Kismen dogru. Konut
+              kredisi KKDF ve BSMV&apos;den muaftir ANCAK bu sadece <strong>konut
+              alimi</strong> icindir. Konut yenileme veya tadilat icin alinan
+              kredi &quot;ihtiyac kredisi&quot; sayilir ve KKDF+BSMV uygulanir.
+            </li>
+            <li>
+              <strong>&quot;Faiz sabit kalir&quot;</strong> — Genelde dogru ama bazi bankalarda
+              <strong>degisken faizli</strong> konut kredileri vardir. Sozlesme
+              imzalamadan once &quot;sabit faiz&quot; ibaresini muhakkak kontrol edin.
+            </li>
+            <li>
+              <strong>&quot;Erken kapama her zaman avantajli&quot;</strong> — Yari dogru.
+              Erken kapama <strong>%1-2 komisyon</strong> alir, ama kalan faizden
+              kurtulurusunuz. Genellikle 3 yil+ vade kalan kredilerde erken
+              kapama avantajlidir.
+            </li>
+            <li>
+              <strong>&quot;Pesinatsiz kredi var&quot;</strong> — Hayir. BDDK kurallarina
+              gore konut degerinin <strong>en az %10&apos;u (1. ev) veya %20&apos;si (2. ev)</strong>
+              pesinat olarak verilmelidir. Buyukler icin %30-50&apos;ye cikar.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Kredi piyasasini{" "}
+            <a href="https://www.bddk.org.tr" target="_blank" rel="noopener noreferrer">Bankacilik Duzenleme ve Denetleme Kurumu (BDDK)</a>{" "}
+            denetler. Tuketici kredi haklari icin{" "}
+            <a href="https://tuketici.ticaret.gov.tr" target="_blank" rel="noopener noreferrer">Ticaret Bakanligi Tuketici Bilgi Sistemi</a>{" "}
+            bilgi kaynagidir. KKDF ve BSMV oranlari icin{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            tebligleri esastir. Bankalarla yasanan anlasmazliklarda{" "}
+            <a href="https://www.tbb.org.tr/musteri-hakem-heyeti" target="_blank" rel="noopener noreferrer">Tuketici Hakem Heyeti</a>{" "}
+            ucretsiz basvuru noktasidir.
           </p>
         </>
       ) : (

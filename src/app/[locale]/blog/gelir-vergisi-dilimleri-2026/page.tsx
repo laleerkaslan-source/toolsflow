@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { BlogLayout } from "@/components/blog/blog-layout";
+import { TaxBracketsChart } from "@/components/blog/charts/tax-brackets-chart";
+import { socialMetadata } from "@/lib/og";
+import { SITE_URL } from "@/lib/constants";
 
 export async function generateMetadata({
   params,
@@ -24,6 +27,14 @@ export async function generateMetadata({
         en: "/en/blog/gelir-vergisi-dilimleri-2026",
       },
     },
+    ...socialMetadata({
+      title: isTr ? "2026 Gelir Vergisi Dilimleri — Ucret, Serbest Meslek, Kira" : "2026 Income Tax Brackets in Turkey — Full Guide",
+      description: isTr ? "2026 yili gelir vergisi dilimleri, ucretli-ucretsiz oranlari, kumulatif hesaplama yontemi ve ornekler." : "2026 income tax brackets in Turkey, wage/non-wage rates, cumulative calculation method and examples.",
+      url: `${SITE_URL}${isTr ? "/blog/gelir-vergisi-dilimleri-2026" : "/en/blog/gelir-vergisi-dilimleri-2026"}`,
+      category: "Vergi",
+      type: "blog",
+      locale,
+    }),
   };
 }
 
@@ -97,6 +108,7 @@ export default async function GelirVergisiPage({
       {isTr ? (
         <>
           <h2>2026 Ucret Gelirleri Vergi Dilimleri</h2>
+          <TaxBracketsChart locale={locale} />
           <table>
             <thead>
               <tr><th>Dilim</th><th>Oran</th></tr>
@@ -157,6 +169,60 @@ export default async function GelirVergisiPage({
           <p>
             Yil icinde hangi ayda dilim degistireceginizi ve net maasiniz nasil
             degisecegini <strong>maas hesaplayicimiz</strong> ile gorebilirsiniz.
+          </p>
+
+          <h2>Vaka: Bir Mali Musavirin Yillik Gelir Vergisi Yolculugu</h2>
+          <p>
+            Eskisehir&apos;de serbest meslek erbabi mali musavir, 2026 yilinda
+            yillik 750.000 TL beyan ediyor. Ucret disi gelir dilimlerine gore
+            hesaplama:
+          </p>
+          <ul>
+            <li>0 - 158.000 TL → %15 → 23.700 TL</li>
+            <li>158.000 - 330.000 TL (172.000 TL) → %20 → 34.400 TL</li>
+            <li>330.000 - 750.000 TL (420.000 TL) → %27 → 113.400 TL</li>
+            <li><strong>Toplam vergi: 171.500 TL</strong></li>
+            <li>Vergi sonrasi net: 750.000 - 171.500 = <strong>578.500 TL</strong></li>
+            <li>Efektif vergi orani: 171.500 / 750.000 = <strong>%22,87</strong></li>
+          </ul>
+          <p>
+            Onemli not: Efektif orani %22,87 olmasi, en yuksek diliminin %27
+            olmasiyla celismiyor. Cunku dilim oranlari KUMULATIF artar, sadece
+            o dilimin uzeri icin uygulanir. Bu farki bilen az kisi var ve cogu
+            kez &quot;ust dilime girdim, butun maasim daha az vergilenecek&quot; gibi
+            yanlis bir endise yarialiyor.
+          </p>
+
+          <h2>Sik Karistirilan Konular</h2>
+          <ul>
+            <li>
+              <strong>&quot;Ust dilime girdim, butun maas %35 vergilenecek&quot;</strong> —
+              Yanlis. Dilimler kumulatif olcude artar; SADECE o dilimin uzeri
+              %35 vergilenir. Geri kalan kisim onceki dilim oranlarina tabidir.
+            </li>
+            <li>
+              <strong>&quot;Sadece maasli kisiler dilime tabi&quot;</strong> — Hayir.
+              Kira, serbest meslek, ticari kazanc, gayrimenkul satisi gibi
+              gelirler de gelir vergisine tabidir. Sadece dilim ESIKLERI biraz
+              farkli olabilir (ucretlilere yakin ama ucret disi 800k+ 2M).
+            </li>
+            <li>
+              <strong>&quot;Asgari ucret istisnasi sadece dusuk maaslilara&quot;</strong> —
+              Yanlis. 2022&apos;den beri TUM ucretlilere asgari ucret kadar olan
+              gelir kisminda istisna uygulanir. 200.000 TL alan biri de 22.104
+              TL&apos;si icin vergi odemez.
+            </li>
+          </ul>
+
+          <h2>Resmi Kaynaklar</h2>
+          <p>
+            Gelir vergisi dilimi her yil{" "}
+            <a href="https://www.gib.gov.tr" target="_blank" rel="noopener noreferrer">Gelir Idaresi Baskanligi</a>{" "}
+            tarafindan tebligler ile aciklanir. Yasal dayanak{" "}
+            <a href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=193&MevzuatTur=1&MevzuatTertip=4" target="_blank" rel="noopener noreferrer">193 sayili Gelir Vergisi Kanunu</a>{" "}
+            (Madde 103 vergi tarifesi). Beyanname verme ve onceki yil bilgileri icin{" "}
+            <a href="https://ivd.gib.gov.tr" target="_blank" rel="noopener noreferrer">Interaktif Vergi Dairesi</a>{" "}
+            kullanilir.
           </p>
         </>
       ) : (

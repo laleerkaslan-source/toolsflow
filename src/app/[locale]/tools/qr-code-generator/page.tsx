@@ -21,6 +21,7 @@ export async function generateMetadata({
         en: "/en/tools/qr-code-generator",
       },
     },
+    robots: { index: false, follow: true },
   };
 }
 

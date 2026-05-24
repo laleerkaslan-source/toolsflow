@@ -1,5 +1,7 @@
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { SeveranceCalculator } from "@/components/tools/severance-calculator";
+import { HowToJsonLd } from "@/components/seo/json-ld";
+import { SeveranceTenureChart } from "@/components/blog/charts/severance-tenure-chart";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -86,6 +88,7 @@ export default async function SeveranceCalculatorPage({
       </p>
 
       <h2>2026 Kıdem Tavanı</h2>
+      <SeveranceTenureChart locale={locale} />
       <p>
         2026 yılı kıdem tazminatı tavan tutarı <strong>44.764,27 TL</strong> olarak
         belirlenmiştir. Brüt maaşınız bu tavanın üzerindeyse, hesaplama tavan
@@ -155,9 +158,34 @@ export default async function SeveranceCalculatorPage({
     </>
   );
 
+  const howToSteps = isTr
+    ? [
+        { name: "Ise giris tarihi", text: "Ilk ise basladiginiz tarihi girin." },
+        { name: "Ise cikis tarihi", text: "Isten ayrilis veya emeklilik tarihinizi girin." },
+        { name: "Son brut ucret", text: "Son giydirilmis aylik brut ucretinizi yazin (yemek, yol dahil)." },
+        { name: "Sonucu gor", text: "Kidem tazminati, ihbar tazminati ve damga vergisi dahil net tutari goruntuleyin." },
+      ]
+    : [
+        { name: "Start date", text: "Enter your first day at the company." },
+        { name: "End date", text: "Enter your last day or retirement date." },
+        { name: "Last gross wage", text: "Type your last 'dressed' monthly gross wage (incl. meal, travel)." },
+        { name: "View result", text: "See severance, notice pay and net amount after stamp tax." },
+      ];
+
   return (
-    <ToolLayout toolId="severance-calculator" locale={locale} faq={faq} guide={guide}>
-      <SeveranceCalculator />
-    </ToolLayout>
+    <>
+      <HowToJsonLd
+        name={isTr ? "Kidem Tazminati Nasil Hesaplanir?" : "How to Calculate Severance Pay (Turkey)"}
+        description={
+          isTr
+            ? "Kidem yili ve giydirilmis ucret uzerinden 2026 tavanli kidem tazminati hesaplama adimlari."
+            : "Calculate severance pay with the 2026 ceiling based on tenure and dressed wage."
+        }
+        steps={howToSteps}
+      />
+      <ToolLayout toolId="severance-calculator" locale={locale} faq={faq} guide={guide}>
+        <SeveranceCalculator />
+      </ToolLayout>
+    </>
   );
 }

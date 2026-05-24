@@ -170,6 +170,108 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Mission & Editorial Principles — depth for AdSense quality signal */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              {isTr ? "Misyonumuz" : "Our Mission"}
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {isTr
+                ? "ToolsFlow, Türkiye mevzuatına göre dakik hesaplamalar yapan ücretsiz finansal araçlar sunan bağımsız bir platformdur. 4857 sayılı İş Kanunu, 5510 sayılı Sosyal Sigortalar Kanunu, 193 sayılı Gelir Vergisi Kanunu ve 3065 sayılı KDV Kanunu kapsamındaki hesaplamaları (brüt-net maaş, kıdem tazminatı, kredi taksiti, KDV, gelir vergisi dilimleri) reklam baskısı olmadan, kullanıcı verisini sunucularımıza göndermeden, kullanıcı dostu arayüzlerle yapıyoruz."
+                : "ToolsFlow is an independent platform offering free financial tools that perform calculations precisely under Turkish legislation. We cover wage, severance, loan, VAT, and income tax computations defined by Labor Law No. 4857, Social Insurance Law No. 5510, Income Tax Law No. 193 and VAT Law No. 3065 — all client-side, ad-light, with no data sent to our servers."}
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {isTr
+                ? "Türkiye'ye özel doğru hesaplama yapan ücretsiz araçlar piyasada nadir. Vergi dilimleri, SGK tavanı, asgari ücret istisnası, kıdem tavanı gibi 6 ayda bir değişen değerleri sürekli güncel tutuyoruz. Hedefimiz: çalışanın, işverenin, serbest meslek erbabının her zaman 30 saniye içinde doğru tutarı bulabileceği güvenilir bir referans olmak."
+                : "Free, Turkey-specific calculators are scarce. We keep tax brackets, SSI ceilings, minimum-wage exemptions, and severance ceilings in sync — values that change every 6 months. Our goal: a reliable reference where employees, employers, and the self-employed can find the right number in 30 seconds, every time."}
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              {isTr ? "Editöryel İlkelerimiz" : "Editorial Principles"}
+            </h2>
+            <ul className="mt-4 space-y-3 text-muted-foreground leading-relaxed">
+              <li>
+                <strong className="text-foreground">
+                  {isTr ? "Birincil kaynak doğrulaması:" : "Primary source verification:"}
+                </strong>{" "}
+                {isTr
+                  ? "Resmî Gazete, Gelir İdaresi Başkanlığı (GİB), SGK ve Çalışma ve Sosyal Güvenlik Bakanlığı resmi yayınları."
+                  : "Official Gazette, Turkish Revenue Administration (GİB), SSI, and Ministry of Labor publications."}
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  {isTr ? "Hesaplama testi:" : "Calculation testing:"}
+                </strong>{" "}
+                {isTr
+                  ? "Tüm formüller gerçek bordro örnekleri ve ticari yazılımlarla çapraz doğrulanır."
+                  : "All formulas are cross-checked against real payrolls and commercial software."}
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  {isTr ? "6 aylık güncelleme:" : "6-month refresh cycle:"}
+                </strong>{" "}
+                {isTr
+                  ? "Vergi dilimleri, SGK tavanı, asgari ücret, kıdem tavanı değerleri her dönem yenilenir veya yeni mevzuat çıktığında anında güncellenir."
+                  : "Tax brackets, SSI ceiling, minimum wage and severance ceiling refresh every period, or sooner when new regulations are issued."}
+              </li>
+              <li>
+                <strong className="text-foreground">
+                  {isTr ? "Şeffaflık:" : "Transparency:"}
+                </strong>{" "}
+                {isTr
+                  ? "Her hesaplamanın altında damga vergisi, AGİ, kümülatif dilim gibi varsayımları açıkça gösteriyoruz. Sonuçlar profesyonel danışmanlık yerine geçmez."
+                  : "Every calculation shows its assumptions (stamp tax, exemptions, cumulative bracket). Results don't replace professional advice."}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Recent updates timeline */}
+        <div className="mt-12 rounded-xl border border-border bg-card p-6">
+          <h3 className="text-lg font-semibold">
+            {isTr ? "Son Güncellemeler" : "Recent Updates"}
+          </h3>
+          <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li className="flex gap-3">
+              <span className="font-mono text-xs text-primary">2026-05</span>
+              <span>
+                {isTr
+                  ? "Tüm finans araçlarına HowTo + SoftwareApplication şema desteği eklendi; içerik kalitesi için 5 yeni Recharts grafiği yayına alındı (gelir vergisi dilimleri, SGK dağılımı, bileşik faiz, kıdem ve kredi amortismanı)."
+                  : "Added HowTo + SoftwareApplication schema across all finance tools; 5 new Recharts visuals shipped (income tax brackets, SSI breakdown, compound interest, severance and loan amortization)."}
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-mono text-xs text-primary">2026-04</span>
+              <span>
+                {isTr
+                  ? "13 finans rehberi yayına alındı (asgari ücret, ihbar tazminatı, MTV, emlak vergisi vd.). E-E-A-T için Hakkımızda, Gizlilik, Kullanım Şartları detaylandırıldı."
+                  : "13 finance guides published (minimum wage, notice pay, MTV, property tax, etc.). E-E-A-T pages — About, Privacy, Terms — significantly expanded."}
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-mono text-xs text-primary">2026-03</span>
+              <span>
+                {isTr
+                  ? "Site Cloudflare Workers altyapısına taşındı. Performans, küresel CDN ve yaygın erişim için OpenNext adaptörü kullanıldı."
+                  : "Migrated to Cloudflare Workers via OpenNext adapter for performance and global CDN."}
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-mono text-xs text-primary">2026-02</span>
+              <span>
+                {isTr
+                  ? "İlk 5 finans hesaplayıcı (maaş, kredi, KDV, kıdem, yatırım) ve TR/EN iki dilli destek ile platform yayına alındı."
+                  : "Platform launched with the first 5 finance calculators (salary, loan, VAT, severance, investment) and TR/EN bilingual support."}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <AdUnit slot="homepage-mid" format="horizontal" className="my-4" />
       </div>
