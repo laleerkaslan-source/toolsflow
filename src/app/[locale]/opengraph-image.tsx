@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 import { SITE_NAME } from "@/lib/constants";
 
-export const runtime = "edge";
 export const alt = "ToolsFlow — Free Online Tools";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

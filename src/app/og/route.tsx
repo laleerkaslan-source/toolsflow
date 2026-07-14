@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import { SITE_NAME } from "@/lib/constants";
 
-export const runtime = "edge";
-
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const title = searchParams.get("title") ?? SITE_NAME;
